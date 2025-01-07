@@ -1,8 +1,7 @@
 # Basic Configuration
-baseURL = "https://alcomist.github.io"
-
-languageCode = "ko-kr"
-title = "푸리에 소프트웨어"
+baseURL = "/"
+languageCode = "en-us"
+title = "Your Site Title"
 
 theme = "hugo-saasify-theme"
 
@@ -37,9 +36,8 @@ enableGitInfo = true      # Enable Git info for lastmod
 
 # Theme Parameters
 [params]
-  description = "푸리에 소프트웨어"
-  author = "정진현"
-
+  description = "Your site description"
+  author = "Your Name"
   logo = "/images/logo.svg"      # Path to your logo
   # Google Analytics ID (e.g., "G-XXXXXXXXXX")
   googleAnalytics = "G-XXXXXXXXXX"  # Only enabled in production
@@ -48,18 +46,18 @@ enableGitInfo = true      # Enable Git info for lastmod
   [params.header]
     background = "bg-white/80 backdrop-blur-sm"
     border = "border-b border-gray-100"
-    
+
     # Header Logo
     [params.header.logo]
       src = "/images/logo.svg"
-    
+
     # Header Buttons (optional)
     [params.header.buttons]
       [params.header.buttons.signIn]
-        text = "로그인"
+        text = "Sign in"
         url = "/signin"
       [params.header.buttons.getStarted]
-        text = "시작하기"
+        text = "Get Started"
         url = "/get-started"
 
   # Global CTA Configuration (optional)
@@ -76,9 +74,9 @@ enableGitInfo = true      # Enable Git info for lastmod
 
   # Social Media Links (optional)
   [params.social]
-    linkedin = "https://linkedin.com/in/fouriersoftwares"
-    twitter = "https://twitter.com/chankipapa"
-    github = "https://github.com/alcomist"
+    linkedin = "https://linkedin.com/in/yourusername"
+    twitter = "https://twitter.com/yourusername"
+    github = "https://github.com/yourusername"
 
 # Navigation Menu
 [menu]
