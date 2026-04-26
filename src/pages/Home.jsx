@@ -1,49 +1,45 @@
 import React from 'react';
-import { Code, MonitorSmartphone, Gamepad2, Blocks } from 'lucide-react';
+import { Smartphone, Gamepad2, LayoutTemplate, Globe } from 'lucide-react';
+import { useLanguage } from '../LanguageContext';
 
 const Home = () => {
+  const { t } = useLanguage();
+
   return (
     <div className="fade-in">
       <section className="hero">
-        <h1 className="gradient-text">Hello, I'm Alcomist</h1>
-        <p>I build applications, games, and open source projects with a focus on clean code and great user experiences.</p>
+        <h1 className="gradient-text">{t('hello', 'home')}</h1>
+        <p className="subtitle">Software Engineer & Maker</p>
+        <p style={{ maxWidth: '600px', lineHeight: '1.6', color: 'var(--text-muted)' }}>
+          {t('desc', 'home')}
+        </p>
       </section>
 
-      <h2 style={{ textAlign: 'center', margin: '40px 0 20px', fontFamily: 'Outfit' }}>What I Can Do</h2>
-      
-      <div className="card-grid">
-        <div className="card glass-panel">
-          <MonitorSmartphone size={40} color="var(--primary-color)" style={{ marginBottom: 16 }} />
-          <h3>Android App Development</h3>
-          <p style={{ color: 'var(--text-muted)', marginTop: 8 }}>
-            Creating robust and user-friendly mobile applications for the Android ecosystem, focusing on performance and utility.
-          </p>
+      <section style={{ marginTop: '60px' }}>
+        <h2 style={{ marginBottom: '24px', color: 'var(--text-main)' }}>{t('what_i_can_do', 'home')}</h2>
+        <div className="card-grid">
+          <div className="card glass-panel">
+            <Smartphone size={32} color="var(--primary-color)" style={{ marginBottom: '16px' }} />
+            <h3>{t('android_title', 'home')}</h3>
+            <p>{t('android_desc', 'home')}</p>
+          </div>
+          <div className="card glass-panel">
+            <Gamepad2 size={32} color="var(--accent-color)" style={{ marginBottom: '16px' }} />
+            <h3>{t('game_title', 'home')}</h3>
+            <p>{t('game_desc', 'home')}</p>
+          </div>
+          <div className="card glass-panel">
+            <LayoutTemplate size={32} color="#10b981" style={{ marginBottom: '16px' }} />
+            <h3>{t('frontend_title', 'home')}</h3>
+            <p>{t('frontend_desc', 'home')}</p>
+          </div>
+          <div className="card glass-panel">
+            <Globe size={32} color="#f59e0b" style={{ marginBottom: '16px' }} />
+            <h3>{t('opensource_title', 'home')}</h3>
+            <p>{t('opensource_desc', 'home')}</p>
+          </div>
         </div>
-
-        <div className="card glass-panel">
-          <Gamepad2 size={40} color="var(--secondary-color)" style={{ marginBottom: 16 }} />
-          <h3>Game Development</h3>
-          <p style={{ color: 'var(--text-muted)', marginTop: 8 }}>
-            Developing interactive and engaging games using modern game engines like Heaps and Defold.
-          </p>
-        </div>
-
-        <div className="card glass-panel">
-          <Code size={40} color="var(--accent-color)" style={{ marginBottom: 16 }} />
-          <h3>Frontend Development</h3>
-          <p style={{ color: 'var(--text-muted)', marginTop: 8 }}>
-            Building responsive, fast, and beautiful web interfaces using React, JavaScript, and modern CSS.
-          </p>
-        </div>
-
-        <div className="card glass-panel">
-          <Blocks size={40} color="#f59e0b" style={{ marginBottom: 16 }} />
-          <h3>Open Source Contributions</h3>
-          <p style={{ color: 'var(--text-muted)', marginTop: 8 }}>
-            Actively participating in and contributing to various open source game engines and projects.
-          </p>
-        </div>
-      </div>
+      </section>
     </div>
   );
 };

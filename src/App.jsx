@@ -1,32 +1,49 @@
 import React from 'react';
 import { Routes, Route, Link, useLocation } from 'react-router-dom';
-import { Code2, User, Link as LinkIcon, Shield } from 'lucide-react';
+import { User, Briefcase, Link2 } from 'lucide-react';
 import Home from './pages/Home';
 import History from './pages/History';
 import Links from './pages/Links';
 import PrivacyPolicy from './pages/PrivacyPolicy';
+import { useLanguage } from './LanguageContext';
 
 function App() {
   const location = useLocation();
+  const { toggleLanguage, t } = useLanguage();
 
   return (
-    <>
+    <div className="layout">
       <nav>
         <Link to="/" className="brand gradient-text">Alcomist</Link>
         <div className="nav-links">
           <Link to="/" className={location.pathname === '/' ? 'active' : ''}>
             <User size={18} style={{marginRight: 6, verticalAlign: 'text-bottom'}} />
-            About
+            {t('about', 'nav')}
           </Link>
           <Link to="/history" className={location.pathname === '/history' ? 'active' : ''}>
-            <Code2 size={18} style={{marginRight: 6, verticalAlign: 'text-bottom'}} />
-            History
+            <Briefcase size={18} style={{marginRight: 6, verticalAlign: 'text-bottom'}} />
+            {t('history', 'nav')}
           </Link>
           <Link to="/links" className={location.pathname === '/links' ? 'active' : ''}>
-            <LinkIcon size={18} style={{marginRight: 6, verticalAlign: 'text-bottom'}} />
-            Apps & Links
+            <Link2 size={18} style={{marginRight: 6, verticalAlign: 'text-bottom'}} />
+            {t('links', 'nav')}
           </Link>
-        </div>
+            <button 
+              onClick={toggleLanguage} 
+              style={{ 
+                background: 'rgba(255,255,255,0.1)', 
+                border: 'none', 
+                color: 'var(--text-main)', 
+                padding: '6px 12px', 
+                borderRadius: '16px', 
+                cursor: 'pointer',
+                fontWeight: 'bold',
+                marginLeft: '12px'
+              }}
+            >
+              {t('lang_toggle', 'nav')}
+            </button>
+          </div>
       </nav>
 
       <main className="container">
@@ -38,7 +55,7 @@ function App() {
           <Route path="/app/android/:appId/privacy" element={<PrivacyPolicy />} />
         </Routes>
       </main>
-    </>
+    </div>
   );
 }
 

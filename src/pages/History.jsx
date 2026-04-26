@@ -1,6 +1,9 @@
 import React, { useMemo } from 'react';
+import { useLanguage } from '../LanguageContext';
 
 const History = () => {
+  const { t } = useLanguage();
+
   const historyData = [
     {
       id: 1,
@@ -17,15 +20,16 @@ const History = () => {
       description: (
         <>
           <div style={{ marginBottom: '8px' }}>
-            다양한 타겟(문자메시지, RCS, 카카오톡 등)으로 메시지를 발송할 수 있는 
-            <a href="https://msghub.uplus.co.kr" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent-color)', textDecoration: 'none', fontWeight: 'bold', marginLeft: '6px' }}>
+            {t('uplus_desc', 'history')} 
+            <a href="https://msghub.uplus.co.kr" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent-color)', textDecoration: 'none', fontWeight: 'bold', marginLeft: '6px', marginRight: '6px' }}>
               U+ 메시지허브
-            </a> 서비스 구축 및 운영
+            </a> 
+            {t('uplus_desc_2', 'history')}
           </div>
           <ul style={{ paddingLeft: '20px', margin: '12px 0' }}>
-            <li>MSA(Microservices Architecture) 구조를 채택하여 확장성 있는 백엔드 아키텍처 설계</li>
-            <li>Spring Boot 및 Spring WebFlux를 활용한 Reactive(비동기/논블로킹) 기반 고성능 메시지 처리 서비스 개발</li>
-            <li>대규모 트래픽 환경에서 안정적인 채널 연동 및 성능 최적화 진행</li>
+            <li>{t('uplus_b1', 'history')}</li>
+            <li>{t('uplus_b2', 'history')}</li>
+            <li>{t('uplus_b3', 'history')}</li>
           </ul>
           <div style={{ marginTop: '16px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
             {Object.entries({
@@ -83,12 +87,12 @@ const History = () => {
       title: '(주)멸치',
       description: (
         <>
-          <div style={{ marginBottom: '8px' }}>성능 저하 해소 및 고도화를 위한 검색엔진 마이그레이션 프로젝트 리딩 및 성공적 전환 완수</div>
+          <div style={{ marginBottom: '8px' }}>{t('melchi_desc', 'history')}</div>
           <ul style={{ paddingLeft: '20px', margin: '12px 0' }}>
-            <li>기존 Solr 검색엔진 버전업 및 성능 최적화 작업 수행</li>
-            <li>Solr 기반의 기존 검색엔진을 OpenSearch로 완전 전환 (설계 및 구축)</li>
-            <li>Java를 활용한 Oracle 및 PostgreSQL 데이터 색인(Indexing) 파이프라인 구축</li>
-            <li>Python을 활용한 검색 결괏값 도출 로직 및 API 연동</li>
+            <li>{t('melchi_b1', 'history')}</li>
+            <li>{t('melchi_b2', 'history')}</li>
+            <li>{t('melchi_b3', 'history')}</li>
+            <li>{t('melchi_b4', 'history')}</li>
           </ul>
           <div style={{ marginTop: '16px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
             {Object.entries({
@@ -153,12 +157,12 @@ const History = () => {
       description: (
         <>
           <div style={{ marginBottom: '8px' }}>
-            유저의 게임 플레이 화면을 녹화(FFmpeg 등 활용)하여 서버에 업로드하고 다른 유저들과 공유하는 <strong>'Game Camera (Gamera)'</strong> 앱 프로젝트의 Project Manager(PM) 및 백엔드 개발 수행
+            {t('gamera_desc', 'history')} <strong>'Game Camera (Gamera)'</strong> {t('gamera_desc_2', 'history')}
           </div>
           <ul style={{ paddingLeft: '20px', margin: '12px 0' }}>
-            <li><strong>Backend:</strong> C++ 기반 영상 업로드 및 스트리밍 백엔드 서버 시스템 직접 설계 및 개발</li>
-            <li><strong>Frontend:</strong> Android 및 iOS 모바일 클라이언트 애플리케이션 개발 프로젝트 리드 및 매니징 (직접 개발 제외)</li>
-            <li>AWS 클라우드 인프라 아키텍처 구성 및 Linux 환경 최적화</li>
+            <li>{t('gamera_b1', 'history')}</li>
+            <li>{t('gamera_b2', 'history')}</li>
+            <li>{t('gamera_b3', 'history')}</li>
           </ul>
           <div style={{ marginTop: '16px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
             {Object.entries({
@@ -265,10 +269,10 @@ const History = () => {
     }
     
     let result = '';
-    if (years > 0) result += `${years}년 `;
-    if (months > 0) result += `${months}개월`;
+    if (years > 0) result += `${years}${t('years', 'history')} `;
+    if (months > 0) result += `${months}${t('months', 'history')}`;
     
-    return result.trim() || '1개월 미만';
+    return result.trim() || t('under_1_month', 'history');
   };
 
   const formatDateRange = (startStr, endStr) => {
@@ -277,7 +281,7 @@ const History = () => {
       return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}`;
     };
     const start = format(startStr);
-    const end = endStr === 'Present' ? '현재' : format(endStr);
+    const end = endStr === 'Present' ? t('present', 'history') : format(endStr);
     return `${start} ~ ${end}`;
   };
 
@@ -323,24 +327,24 @@ const History = () => {
     const finalMonths = totalMonths % 12;
 
     let result = '';
-    if (finalYears > 0) result += `${finalYears}년 `;
-    if (finalMonths > 0) result += `${finalMonths}개월`;
+    if (finalYears > 0) result += `${finalYears}${t('years', 'history')} `;
+    if (finalMonths > 0) result += `${finalMonths}${t('months', 'history')}`;
     
-    return result.trim() || '1개월 미만';
+    return result.trim() || t('under_1_month', 'history');
   };
 
-  const totalCareer = useMemo(() => getTotalDuration(), []);
+  const totalCareer = useMemo(() => getTotalDuration(), [t]);
 
   return (
     <div className="fade-in">
-      <h1 className="gradient-text" style={{ marginBottom: '24px', fontSize: '2.5rem', display: 'flex', alignItems: 'baseline', gap: '12px' }}>
-        History & Experience
+      <h1 className="gradient-text" style={{ marginBottom: '24px', fontSize: '2.5rem', display: 'flex', alignItems: 'baseline', gap: '12px', flexWrap: 'wrap' }}>
+        {t('title', 'history')}
         <span style={{ fontSize: '1.2rem', color: 'var(--text-main)', fontWeight: 'normal', background: 'rgba(255,255,255,0.1)', padding: '4px 12px', borderRadius: '20px' }}>
-          총 {totalCareer}
+          {t('total', 'history')} {totalCareer}
         </span>
       </h1>
       <p style={{ color: 'var(--text-muted)', marginBottom: '40px' }}>
-        My professional journey, from latest to earliest.
+        {t('desc', 'history')}
       </p>
 
       <div className="timeline">
@@ -352,7 +356,7 @@ const History = () => {
                 ({calculateDuration(item.startDate, item.endDate)})
               </span>
             </div>
-            <h3 className="timeline-title" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <h3 className="timeline-title" style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
               {item.title}
               {item.isFreelance && (
                 <span style={{
@@ -364,7 +368,7 @@ const History = () => {
                   fontWeight: '600',
                   letterSpacing: '0.5px'
                 }}>
-                  프리랜서
+                  {t('freelance', 'history')}
                 </span>
               )}
               {item.isOverseas && (
@@ -378,11 +382,11 @@ const History = () => {
                   letterSpacing: '0.5px',
                   boxShadow: '0 0 8px rgba(245, 158, 11, 0.4)'
                 }}>
-                  🌎 해외 스타트업
+                  {t('overseas', 'history')}
                 </span>
               )}
             </h3>
-            <p style={{ color: 'var(--text-muted)' }}>{item.description}</p>
+            <div style={{ color: 'var(--text-muted)' }}>{item.description}</div>
           </div>
         ))}
       </div>

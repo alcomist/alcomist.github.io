@@ -1,23 +1,26 @@
 import React from 'react';
-import { Smartphone, Gamepad2, Rocket, ExternalLink, Globe } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Smartphone, Gamepad2, Blocks, Rocket, Globe, ExternalLink } from 'lucide-react';
+import { useLanguage } from '../LanguageContext';
 
 const Links = () => {
+  const { t } = useLanguage();
+
   return (
     <div className="fade-in">
-      <h1 className="gradient-text" style={{ marginBottom: '24px', fontSize: '2.5rem' }}>Apps & Links</h1>
+      <h1 className="gradient-text" style={{ marginBottom: '24px', fontSize: '2.5rem' }}>{t('title', 'links')}</h1>
       
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '32px', marginTop: '40px' }}>
+      <div className="links-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px', marginTop: '40px' }}>
         
-        {/* Android Apps */}
-        <section>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
-            <Smartphone size={28} color="var(--primary-color)" />
-            <h2>Android Apps</h2>
+        {/* Android Apps Section */}
+        <div className="card" style={{ padding: '0' }}>
+          <div style={{ padding: '24px', borderBottom: '1px solid rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', gap: '12px' }}>
+            <Smartphone color="var(--primary-color)" />
+            <h3 style={{ margin: 0 }}>{t('android_apps', 'links')}</h3>
           </div>
           <div className="link-list glass-panel">
             <div style={{ marginBottom: '16px' }}>
-              <h4 style={{ color: 'var(--text-main)', marginBottom: '8px' }}>Current Apps</h4>
+              <h4 style={{ color: 'var(--text-main)', marginBottom: '8px' }}>{t('current_apps', 'links')}</h4>
               <a href="https://play.google.com/store/apps/details?id=kr.co.fourier.what_time_is_it" target="_blank" rel="noopener noreferrer" className="link-item" style={{ padding: '12px', background: 'rgba(255,255,255,0.05)', borderRadius: '8px', textDecoration: 'none' }}>
                 <Rocket size={18} />
                 <span>Kids Clock Genius (키즈 시계 박사)</span>
@@ -25,39 +28,52 @@ const Links = () => {
             </div>
             
             <div>
-              <h4 style={{ color: 'var(--text-main)', marginBottom: '8px', marginTop: '16px' }}>Future Apps</h4>
-              <div className="link-item" style={{ padding: '12px', background: 'rgba(255,255,255,0.02)', borderRadius: '8px', opacity: 0.7 }}>
+              <h4 style={{ color: 'var(--text-main)', marginBottom: '8px' }}>{t('future_apps', 'links')}</h4>
+              <div className="link-item disabled" style={{ padding: '12px', background: 'rgba(255,255,255,0.02)', borderRadius: '8px', opacity: 0.5 }}>
                 <Rocket size={18} />
-                <span>Upcoming App Project #1</span>
+                <span>{t('future_app_1', 'links')} (TBD)</span>
               </div>
             </div>
           </div>
-        </section>
+        </div>
 
-        {/* Open Source Games & Engines */}
-        <section>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
-            <Gamepad2 size={28} color="var(--secondary-color)" />
-            <h2>Game Projects & Engines</h2>
+        {/* Game Projects & Engines Section */}
+        <div className="card" style={{ padding: '0' }}>
+          <div style={{ padding: '24px', borderBottom: '1px solid rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', gap: '12px' }}>
+            <Gamepad2 color="var(--accent-color)" />
+            <h3 style={{ margin: 0 }}>{t('game_projects', 'links')}</h3>
           </div>
           <div className="link-list glass-panel">
-            <h4 style={{ color: 'var(--text-main)', marginBottom: '8px' }}>Game Engines</h4>
-            <a href="https://heaps.io/" target="_blank" rel="noopener noreferrer" className="link-item" style={{ padding: '12px', background: 'rgba(255,255,255,0.05)', borderRadius: '8px' }}>
-              <ExternalLink size={18} />
-              <span>Heaps.io (Haxe Game Engine)</span>
-            </a>
-            <a href="https://defold.com/" target="_blank" rel="noopener noreferrer" className="link-item" style={{ padding: '12px', background: 'rgba(255,255,255,0.05)', borderRadius: '8px' }}>
-              <ExternalLink size={18} />
-              <span>Defold Game Engine</span>
-            </a>
-
-            <h4 style={{ color: 'var(--text-main)', marginBottom: '8px', marginTop: '16px' }}>Open Source Projects</h4>
-            <a href="https://github.com/alcomist" target="_blank" rel="noopener noreferrer" className="link-item" style={{ padding: '12px', background: 'rgba(255,255,255,0.05)', borderRadius: '8px' }}>
-              <Globe size={18} />
-              <span>Alcomist GitHub Repositories</span>
-            </a>
+            <div style={{ marginBottom: '16px' }}>
+              <h4 style={{ color: 'var(--text-main)', marginBottom: '8px' }}>{t('game_engines', 'links')}</h4>
+              <a href="https://heaps.io/" target="_blank" rel="noopener noreferrer" className="link-item" style={{ padding: '12px', background: 'rgba(255,255,255,0.05)', borderRadius: '8px', textDecoration: 'none' }}>
+                <ExternalLink size={18} />
+                <span>Heaps.io Game Engine</span>
+              </a>
+              <a href="https://defold.com/" target="_blank" rel="noopener noreferrer" className="link-item" style={{ padding: '12px', background: 'rgba(255,255,255,0.05)', borderRadius: '8px', textDecoration: 'none', marginTop: '8px' }}>
+                <ExternalLink size={18} />
+                <span>Defold Game Engine</span>
+              </a>
+            </div>
           </div>
-        </section>
+        </div>
+
+        {/* Open Source Projects Section */}
+        <div className="card" style={{ padding: '0' }}>
+          <div style={{ padding: '24px', borderBottom: '1px solid rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', gap: '12px' }}>
+            <Blocks color="#f59e0b" />
+            <h3 style={{ margin: 0 }}>{t('opensource_projects', 'links')}</h3>
+          </div>
+          <div className="link-list glass-panel">
+            <div style={{ marginBottom: '16px' }}>
+              <h4 style={{ color: 'var(--text-main)', marginBottom: '8px' }}>{t('github_repos', 'links')}</h4>
+              <a href="https://github.com/alcomist" target="_blank" rel="noopener noreferrer" className="link-item" style={{ padding: '12px', background: 'rgba(255,255,255,0.05)', borderRadius: '8px', textDecoration: 'none' }}>
+                <Globe size={18} />
+                <span>@alcomist on GitHub</span>
+              </a>
+            </div>
+          </div>
+        </div>
 
       </div>
     </div>
