@@ -18,10 +18,10 @@ const Links = () => {
           <div className="link-list glass-panel">
             <div style={{ marginBottom: '16px' }}>
               <h4 style={{ color: 'var(--text-main)', marginBottom: '8px' }}>Current Apps</h4>
-              <Link to="/app/android/kids_clock_genius/privacy" className="link-item" style={{ padding: '12px', background: 'rgba(255,255,255,0.05)', borderRadius: '8px' }}>
+              <a href="https://play.google.com/store/apps/details?id=kr.co.fourier.what_time_is_it" target="_blank" rel="noopener noreferrer" className="link-item" style={{ padding: '12px', background: 'rgba(255,255,255,0.05)', borderRadius: '8px', textDecoration: 'none' }}>
                 <Rocket size={18} />
                 <span>Kids Clock Genius (키즈 시계 박사)</span>
-              </Link>
+              </a>
             </div>
             
             <div>
