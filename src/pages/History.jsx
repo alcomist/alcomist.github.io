@@ -14,7 +14,66 @@ const History = () => {
       startDate: '2024-09-30',
       endDate: '2025-05-31',
       title: '유플러스 기업메시징',
-      description: '개발/운영',
+      description: (
+        <>
+          <div style={{ marginBottom: '8px' }}>
+            다양한 타겟(문자메시지, RCS, 카카오톡 등)으로 메시지를 발송할 수 있는 
+            <a href="https://msghub.uplus.co.kr" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent-color)', textDecoration: 'none', fontWeight: 'bold', marginLeft: '6px' }}>
+              U+ 메시지허브
+            </a> 서비스 구축 및 운영
+          </div>
+          <ul style={{ paddingLeft: '20px', margin: '12px 0' }}>
+            <li>MSA(Microservices Architecture) 구조를 채택하여 확장성 있는 백엔드 아키텍처 설계</li>
+            <li>Spring Boot 및 Spring WebFlux를 활용한 Reactive(비동기/논블로킹) 기반 고성능 메시지 처리 서비스 개발</li>
+            <li>대규모 트래픽 환경에서 안정적인 채널 연동 및 성능 최적화 진행</li>
+          </ul>
+          <div style={{ marginTop: '16px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            {Object.entries({
+              'Framework': [
+                { name: 'Spring Boot', url: 'https://spring.io/projects/spring-boot' },
+                { name: 'Spring WebFlux', url: 'https://docs.spring.io/spring-framework/reference/web/webflux.html' }
+              ],
+              'DB & Cache': [
+                { name: 'MongoDB', url: 'https://www.mongodb.com/' },
+                { name: 'MySQL', url: 'https://www.mysql.com/' },
+                { name: 'Redis', url: 'https://redis.io/' }
+              ],
+              'Infra & DevOps': [
+                { name: 'AWS', url: 'https://aws.amazon.com/' },
+                { name: 'Kubernetes', url: 'https://kubernetes.io/' }
+              ]
+            }).map(([category, items]) => (
+              <div key={category} style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
+                <span style={{ fontSize: '0.85rem', fontWeight: 'bold', color: 'var(--text-main)', width: '110px' }}>{category}</span>
+                <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                  {items.map(tech => (
+                    <a 
+                      key={tech.name} 
+                      href={tech.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      style={{ 
+                        fontSize: '0.8rem', 
+                        padding: '4px 10px', 
+                        background: 'rgba(59, 130, 246, 0.2)', 
+                        color: 'var(--primary-color)', 
+                        borderRadius: '12px', 
+                        fontWeight: '500',
+                        textDecoration: 'none',
+                        transition: 'background 0.2s ease'
+                      }}
+                      onMouseOver={(e) => e.target.style.background = 'rgba(59, 130, 246, 0.3)'}
+                      onMouseOut={(e) => e.target.style.background = 'rgba(59, 130, 246, 0.2)'}
+                    >
+                      {tech.name}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </>
+      ),
       isFreelance: true
     },
     {
@@ -101,15 +160,56 @@ const History = () => {
             <li><strong>Frontend:</strong> Android 및 iOS 모바일 클라이언트 애플리케이션 개발 프로젝트 리드 및 매니징 (직접 개발 제외)</li>
             <li>AWS 클라우드 인프라 아키텍처 구성 및 Linux 환경 최적화</li>
           </ul>
-          <div style={{ marginTop: '12px', display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-            {['AWS', 'Python', 'MySQL', 'Linux', 'C++', 'Android', 'iOS'].map(tech => (
-              <span key={tech} style={{ fontSize: '0.8rem', padding: '4px 10px', background: 'rgba(59, 130, 246, 0.2)', color: 'var(--primary-color)', borderRadius: '12px', fontWeight: '500' }}>
-                {tech}
-              </span>
+          <div style={{ marginTop: '16px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            {Object.entries({
+              'Cloud & OS': [
+                { name: 'AWS', url: 'https://aws.amazon.com/' },
+                { name: 'Linux', url: 'https://www.linux.org/' }
+              ],
+              'Language': [
+                { name: 'C++', url: 'https://isocpp.org/' },
+                { name: 'Python', url: 'https://www.python.org/' }
+              ],
+              'Database': [
+                { name: 'MySQL', url: 'https://www.mysql.com/' }
+              ],
+              'Frontend': [
+                { name: 'Android', url: 'https://developer.android.com/' },
+                { name: 'iOS', url: 'https://developer.apple.com/ios/' }
+              ]
+            }).map(([category, items]) => (
+              <div key={category} style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
+                <span style={{ fontSize: '0.85rem', fontWeight: 'bold', color: 'var(--text-main)', width: '110px' }}>{category}</span>
+                <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                  {items.map(tech => (
+                    <a 
+                      key={tech.name} 
+                      href={tech.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      style={{ 
+                        fontSize: '0.8rem', 
+                        padding: '4px 10px', 
+                        background: 'rgba(59, 130, 246, 0.2)', 
+                        color: 'var(--primary-color)', 
+                        borderRadius: '12px', 
+                        fontWeight: '500',
+                        textDecoration: 'none',
+                        transition: 'background 0.2s ease'
+                      }}
+                      onMouseOver={(e) => e.target.style.background = 'rgba(59, 130, 246, 0.3)'}
+                      onMouseOut={(e) => e.target.style.background = 'rgba(59, 130, 246, 0.2)'}
+                    >
+                      {tech.name}
+                    </a>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         </>
-      )
+      ),
+      isOverseas: true
     },
     {
       id: 3,
@@ -265,6 +365,20 @@ const History = () => {
                   letterSpacing: '0.5px'
                 }}>
                   프리랜서
+                </span>
+              )}
+              {item.isOverseas && (
+                <span style={{
+                  fontSize: '0.8rem',
+                  padding: '4px 10px',
+                  backgroundColor: '#f59e0b',
+                  color: '#fff',
+                  borderRadius: '12px',
+                  fontWeight: '600',
+                  letterSpacing: '0.5px',
+                  boxShadow: '0 0 8px rgba(245, 158, 11, 0.4)'
+                }}>
+                  🌎 해외 스타트업
                 </span>
               )}
             </h3>
