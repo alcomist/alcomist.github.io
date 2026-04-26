@@ -22,7 +22,47 @@ const History = () => {
       startDate: '2024-03-25',
       endDate: '2024-09-24',
       title: '(주)멸치',
-      description: 'Software Engineer',
+      description: (
+        <>
+          <div style={{ marginBottom: '8px' }}>성능 저하 해소 및 고도화를 위한 검색엔진 마이그레이션 프로젝트 리딩 및 성공적 전환 완수</div>
+          <ul style={{ paddingLeft: '20px', margin: '12px 0' }}>
+            <li>기존 Solr 검색엔진 버전업 및 성능 최적화 작업 수행</li>
+            <li>Solr 기반의 기존 검색엔진을 OpenSearch로 완전 전환 (설계 및 구축)</li>
+            <li>Java를 활용한 Oracle DB 데이터 색인(Indexing) 파이프라인 구축</li>
+            <li>Python을 활용한 검색 결괏값 도출 로직 및 API 연동</li>
+          </ul>
+          <div style={{ marginTop: '12px', display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+            {[
+              { name: 'OpenSearch', url: 'https://opensearch.org/' },
+              { name: 'Solr', url: 'https://solr.apache.org/' },
+              { name: 'Java', url: 'https://dev.java/' },
+              { name: 'Python', url: 'https://www.python.org/' },
+              { name: 'Oracle', url: 'https://www.oracle.com/database/' }
+            ].map(tech => (
+              <a 
+                key={tech.name} 
+                href={tech.url} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                style={{ 
+                  fontSize: '0.8rem', 
+                  padding: '4px 10px', 
+                  background: 'rgba(59, 130, 246, 0.2)', 
+                  color: 'var(--primary-color)', 
+                  borderRadius: '12px', 
+                  fontWeight: '500',
+                  textDecoration: 'none',
+                  transition: 'background 0.2s ease'
+                }}
+                onMouseOver={(e) => e.target.style.background = 'rgba(59, 130, 246, 0.3)'}
+                onMouseOut={(e) => e.target.style.background = 'rgba(59, 130, 246, 0.2)'}
+              >
+                {tech.name}
+              </a>
+            ))}
+          </div>
+        </>
+      ),
       isFreelance: true
     },
     {
