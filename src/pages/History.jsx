@@ -28,37 +28,51 @@ const History = () => {
           <ul style={{ paddingLeft: '20px', margin: '12px 0' }}>
             <li>기존 Solr 검색엔진 버전업 및 성능 최적화 작업 수행</li>
             <li>Solr 기반의 기존 검색엔진을 OpenSearch로 완전 전환 (설계 및 구축)</li>
-            <li>Java를 활용한 Oracle DB 데이터 색인(Indexing) 파이프라인 구축</li>
+            <li>Java를 활용한 Oracle 및 PostgreSQL 데이터 색인(Indexing) 파이프라인 구축</li>
             <li>Python을 활용한 검색 결괏값 도출 로직 및 API 연동</li>
           </ul>
-          <div style={{ marginTop: '12px', display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-            {[
-              { name: 'OpenSearch', url: 'https://opensearch.org/' },
-              { name: 'Solr', url: 'https://solr.apache.org/' },
-              { name: 'Java', url: 'https://dev.java/' },
-              { name: 'Python', url: 'https://www.python.org/' },
-              { name: 'Oracle', url: 'https://www.oracle.com/database/' }
-            ].map(tech => (
-              <a 
-                key={tech.name} 
-                href={tech.url} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                style={{ 
-                  fontSize: '0.8rem', 
-                  padding: '4px 10px', 
-                  background: 'rgba(59, 130, 246, 0.2)', 
-                  color: 'var(--primary-color)', 
-                  borderRadius: '12px', 
-                  fontWeight: '500',
-                  textDecoration: 'none',
-                  transition: 'background 0.2s ease'
-                }}
-                onMouseOver={(e) => e.target.style.background = 'rgba(59, 130, 246, 0.3)'}
-                onMouseOut={(e) => e.target.style.background = 'rgba(59, 130, 246, 0.2)'}
-              >
-                {tech.name}
-              </a>
+          <div style={{ marginTop: '16px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            {Object.entries({
+              'Search Engine': [
+                { name: 'OpenSearch', url: 'https://opensearch.org/' },
+                { name: 'Solr', url: 'https://solr.apache.org/' }
+              ],
+              'Language': [
+                { name: 'Java', url: 'https://dev.java/' },
+                { name: 'Python', url: 'https://www.python.org/' }
+              ],
+              'Database': [
+                { name: 'Oracle', url: 'https://www.oracle.com/database/' },
+                { name: 'PostgreSQL', url: 'https://www.postgresql.org/' }
+              ]
+            }).map(([category, items]) => (
+              <div key={category} style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
+                <span style={{ fontSize: '0.85rem', fontWeight: 'bold', color: 'var(--text-main)', width: '110px' }}>{category}</span>
+                <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                  {items.map(tech => (
+                    <a 
+                      key={tech.name} 
+                      href={tech.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      style={{ 
+                        fontSize: '0.8rem', 
+                        padding: '4px 10px', 
+                        background: 'rgba(59, 130, 246, 0.2)', 
+                        color: 'var(--primary-color)', 
+                        borderRadius: '12px', 
+                        fontWeight: '500',
+                        textDecoration: 'none',
+                        transition: 'background 0.2s ease'
+                      }}
+                      onMouseOver={(e) => e.target.style.background = 'rgba(59, 130, 246, 0.3)'}
+                      onMouseOut={(e) => e.target.style.background = 'rgba(59, 130, 246, 0.2)'}
+                    >
+                      {tech.name}
+                    </a>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         </>
@@ -71,6 +85,31 @@ const History = () => {
       endDate: '2023-09-01',
       title: '(주)빌트온',
       description: 'Software Engineer'
+    },
+    {
+      id: 2.5,
+      startDate: '2014-03-01',
+      endDate: '2015-09-01',
+      title: 'Gamera Networks',
+      description: (
+        <>
+          <div style={{ marginBottom: '8px' }}>
+            유저의 게임 플레이 화면을 녹화(FFmpeg 등 활용)하여 서버에 업로드하고 다른 유저들과 공유하는 <strong>'Game Camera (Gamera)'</strong> 앱 프로젝트의 Project Manager(PM) 및 백엔드 개발 수행
+          </div>
+          <ul style={{ paddingLeft: '20px', margin: '12px 0' }}>
+            <li><strong>Backend:</strong> C++ 기반 영상 업로드 및 스트리밍 백엔드 서버 시스템 직접 설계 및 개발</li>
+            <li><strong>Frontend:</strong> Android 및 iOS 모바일 클라이언트 애플리케이션 개발 프로젝트 리드 및 매니징 (직접 개발 제외)</li>
+            <li>AWS 클라우드 인프라 아키텍처 구성 및 Linux 환경 최적화</li>
+          </ul>
+          <div style={{ marginTop: '12px', display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+            {['AWS', 'Python', 'MySQL', 'Linux', 'C++', 'Android', 'iOS'].map(tech => (
+              <span key={tech} style={{ fontSize: '0.8rem', padding: '4px 10px', background: 'rgba(59, 130, 246, 0.2)', color: 'var(--primary-color)', borderRadius: '12px', fontWeight: '500' }}>
+                {tech}
+              </span>
+            ))}
+          </div>
+        </>
+      )
     },
     {
       id: 3,
