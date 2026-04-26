@@ -9,8 +9,72 @@ const History = () => {
       id: 1,
       startDate: '2025-06-02',
       endDate: 'Present',
-      title: '시프트원주식회사',
-      description: 'Software Engineer'
+      title: (
+        <a href="https://shiftone.kr/" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }} className="hover-underline">
+          시프트원주식회사
+        </a>
+      ),
+      description: (
+        <>
+          <div style={{ marginBottom: '8px' }}>
+            {t('shiftone_desc', 'history')}
+          </div>
+          <ul style={{ paddingLeft: '20px', margin: '12px 0' }}>
+            <li>{t('shiftone_b1', 'history')}</li>
+            <li>{t('shiftone_b2', 'history')}</li>
+            <li>{t('shiftone_b3', 'history')}</li>
+          </ul>
+          <div style={{ marginTop: '16px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            {Object.entries({
+              'Framework & Language': [
+                { name: 'Spring Boot', url: 'https://spring.io/projects/spring-boot' },
+                { name: 'Python', url: 'https://www.python.org/' }
+              ],
+              'Database & Sync': [
+                { name: 'PostgreSQL', url: 'https://www.postgresql.org/' },
+                { name: 'MongoDB', url: 'https://www.mongodb.com/' },
+                { name: 'Monstache', url: 'https://rwynn.github.io/monstache-site/' },
+                { name: 'Redis', url: 'https://redis.io/' }
+              ],
+              'Cloud & DevOps': [
+                { name: 'Azure Cloud', url: 'https://azure.microsoft.com/' },
+                { name: 'Linux', url: 'https://www.linux.org/' },
+                { name: 'Azure Pipelines', url: 'https://azure.microsoft.com/en-us/products/devops/pipelines' },
+                { name: 'Kubernetes', url: 'https://kubernetes.io/' },
+                { name: 'Docker', url: 'https://www.docker.com/' }
+              ]
+            }).map(([category, items]) => (
+              <div key={category} style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
+                <span style={{ fontSize: '0.85rem', fontWeight: 'bold', color: 'var(--text-main)', width: '130px' }}>{category}</span>
+                <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                  {items.map(tech => (
+                    <a 
+                      key={tech.name} 
+                      href={tech.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      style={{ 
+                        fontSize: '0.8rem', 
+                        padding: '4px 10px', 
+                        background: 'rgba(59, 130, 246, 0.2)', 
+                        color: 'var(--primary-color)', 
+                        borderRadius: '12px', 
+                        fontWeight: '500',
+                        textDecoration: 'none',
+                        transition: 'background 0.2s ease'
+                      }}
+                      onMouseOver={(e) => e.target.style.background = 'rgba(59, 130, 246, 0.3)'}
+                      onMouseOut={(e) => e.target.style.background = 'rgba(59, 130, 246, 0.2)'}
+                    >
+                      {tech.name}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </>
+      )
     },
     {
       id: 1.25,
@@ -219,14 +283,22 @@ const History = () => {
       id: 3,
       startDate: '2012-12-10',
       endDate: '2014-02-15',
-      title: '(주)원더피플',
+      title: (
+        <a href="https://www.wonderpeople.co.kr/#home" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }} className="hover-underline">
+          (주)원더피플
+        </a>
+      ),
       description: 'Software Engineer'
     },
     {
       id: 4,
       startDate: '2010-05-01',
       endDate: '2012-10-01',
-      title: '(주)한빛소프트',
+      title: (
+        <a href="https://www.hanbitsoft.co.kr/" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }} className="hover-underline">
+          (주)한빛소프트
+        </a>
+      ),
       description: 'Software Engineer'
     },
     {
@@ -247,7 +319,11 @@ const History = () => {
       id: 7,
       startDate: '2005-11-16',
       endDate: '2007-05-18',
-      title: 'SK 엠앤서비스(주)',
+      title: (
+        <a href="https://www.skmnservice.com/pc_new/html/main.skmns" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }} className="hover-underline">
+          SK 엠앤서비스(주)
+        </a>
+      ),
       description: 'Software Engineer'
     }
   ];
