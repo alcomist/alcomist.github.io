@@ -332,6 +332,9 @@ const History = () => {
     const startDate = new Date(startStr);
     const endDate = endStr === 'Present' ? new Date() : new Date(endStr);
     
+    // 종료일을 포함하여 계산하기 위해 1일을 더함 (예: 24일까지면 25일 0시로 처리하여 꽉 찬 개월수 계산)
+    endDate.setDate(endDate.getDate() + 1);
+    
     let years = endDate.getFullYear() - startDate.getFullYear();
     let months = endDate.getMonth() - startDate.getMonth();
     
@@ -364,8 +367,12 @@ const History = () => {
   const getTotalDuration = () => {
     const intervals = historyData.map(item => {
       const start = new Date(item.startDate).getTime();
-      const end = item.endDate === 'Present' ? new Date().getTime() : new Date(item.endDate).getTime();
-      return [start, end];
+      const endObj = item.endDate === 'Present' ? new Date() : new Date(item.endDate);
+      
+      // 종료일을 포함하여 계산하기 위해 1일을 더함
+      endObj.setDate(endObj.getDate() + 1);
+      
+      return [start, endObj.getTime()];
     });
 
     intervals.sort((a, b) => a[0] - b[0]);
