@@ -1,8 +1,9 @@
 import React from 'react';
 import { Routes, Route, Link, useLocation } from 'react-router-dom';
-import { User, Briefcase, Link2 } from 'lucide-react';
+import { User, Briefcase, Link2, Smartphone } from 'lucide-react';
 import Home from './pages/Home';
 import History from './pages/History';
+import Apps from './pages/Apps';
 import Links from './pages/Links';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import { useLanguage } from './LanguageContext';
@@ -23,6 +24,10 @@ function App() {
           <Link to="/history" className={location.pathname === '/history' ? 'active' : ''}>
             <Briefcase size={18} style={{marginRight: 6, verticalAlign: 'text-bottom'}} />
             {t('history', 'nav')}
+          </Link>
+          <Link to="/apps" className={location.pathname === '/apps' ? 'active' : ''}>
+            <Smartphone size={18} style={{marginRight: 6, verticalAlign: 'text-bottom'}} />
+            {t('apps', 'nav')}
           </Link>
           <Link to="/links" className={location.pathname === '/links' ? 'active' : ''}>
             <Link2 size={18} style={{marginRight: 6, verticalAlign: 'text-bottom'}} />
@@ -50,6 +55,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/history" element={<History />} />
+          <Route path="/apps" element={<Apps />} />
           <Route path="/links" element={<Links />} />
           {/* Dynamic route for privacy policies */}
           <Route path="/app/android/:appId/privacy" element={<PrivacyPolicy />} />

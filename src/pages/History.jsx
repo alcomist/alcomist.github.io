@@ -14,6 +14,10 @@ const History = () => {
           시프트원주식회사
         </a>
       ),
+      clients: [
+        { name: 'SK Innovation', url: 'https://www.skinnovation.com/' },
+        { name: 'SK AX', url: 'https://www.skax.co.kr/' }
+      ],
       description: (
         <>
           <div style={{ marginBottom: '8px' }}>
@@ -81,6 +85,10 @@ const History = () => {
       startDate: '2024-09-30',
       endDate: '2025-05-31',
       title: '유플러스 기업메시징',
+      clients: [
+        { name: 'LG U+', url: 'https://www.lguplus.com/' },
+        { name: 'mediaLog', url: 'https://www.medialog.co.kr/' }
+      ],
       description: (
         <>
           <div style={{ marginBottom: '8px' }}>
@@ -324,6 +332,9 @@ const History = () => {
           SK 엠앤서비스(주)
         </a>
       ),
+      clients: [
+        { name: 'SK Telecom', url: 'https://www.sktelecom.com/' }
+      ],
       description: 'Software Engineer'
     }
   ];
@@ -439,7 +450,7 @@ const History = () => {
                 ({calculateDuration(item.startDate, item.endDate)})
               </span>
             </div>
-            <h3 className="timeline-title" style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
+            <h3 className="timeline-title" style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap', width: '100%' }}>
               {item.title}
               {item.isFreelance && (
                 <span style={{
@@ -467,6 +478,19 @@ const History = () => {
                 }}>
                   {t('overseas', 'history')}
                 </span>
+              )}
+              {item.clients && (
+                <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.9rem', color: 'var(--text-muted)', flexWrap: 'wrap' }}>
+                  <span style={{ fontWeight: '500' }}>{t('clients', 'history')}:</span>
+                  {item.clients.map((client, idx) => (
+                    <React.Fragment key={client.name}>
+                      <a href={client.url} target="_blank" rel="noopener noreferrer" className="hover-underline" style={{ color: 'var(--primary-color)', textDecoration: 'none', fontWeight: '500' }}>
+                        {client.name}
+                      </a>
+                      {idx < item.clients.length - 1 && <span style={{ color: 'var(--text-muted)', fontSize: '0.8rem' }}>|</span>}
+                    </React.Fragment>
+                  ))}
+                </div>
               )}
             </h3>
             <div style={{ color: 'var(--text-muted)' }}>{item.description}</div>

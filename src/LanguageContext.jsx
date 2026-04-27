@@ -28,8 +28,9 @@ const translations = {
     nav: {
       about: '소개',
       history: '이력',
-      links: '앱 & 링크',
-      lang_toggle: '🇰🇷 KOR'
+      apps: '앱',
+      links: '링크',
+      lang_toggle: '🇰🇷 한국어'
     },
     home: {
       hello: "안녕하세요, Alcomist 입니다",
@@ -45,15 +46,15 @@ const translations = {
       opensource_desc: "다양한 오픈소스 게임 엔진과 프로젝트에 적극적으로 참여하고 기여합니다."
     },
     links: {
-      title: "앱 & 링크",
+      title: "링크",
+      apps_title: "앱",
       android_apps: "안드로이드 앱",
       current_apps: "현재 서비스 중인 앱",
+      kids_clock_genius: "키즈시계박사",
       future_apps: "출시 예정 앱",
       future_app_1: "출시 예정 앱 프로젝트 #1",
       game_projects: "게임 프로젝트 & 엔진",
-      game_engines: "게임 엔진",
-      opensource_projects: "오픈소스 프로젝트",
-      github_repos: "Alcomist GitHub 저장소"
+      game_engines: "게임 엔진"
     },
     history: {
       title: "이력 및 경험",
@@ -65,6 +66,7 @@ const translations = {
       present: "현재",
       freelance: "프리랜서",
       overseas: "🌎 해외 스타트업",
+      clients: "고객사",
       shiftone_desc: "Data Governance를 위한 포탈 및 메타데이터 관리 웹 애플리케이션 구축 및 운영",
       shiftone_b1: "Azure Cloud 환경에서의 인프라 운영 및 Azure Pipeline(K8s, Docker) 구축",
       shiftone_b2: "Spring Boot 및 Python을 활용한 데이터 거버넌스 백엔드 개발 및 유지보수",
@@ -90,7 +92,8 @@ const translations = {
     nav: {
       about: 'About',
       history: 'History',
-      links: 'Apps & Links',
+      apps: 'Apps',
+      links: 'Links',
       lang_toggle: '🇺🇸 ENG'
     },
     home: {
@@ -107,15 +110,15 @@ const translations = {
       opensource_desc: "Actively participating in and contributing to various open source game engines and projects."
     },
     links: {
-      title: "Apps & Links",
+      title: "Links",
+      apps_title: "Apps",
       android_apps: "Android Apps",
       current_apps: "Current Apps",
+      kids_clock_genius: "Kids Clock Genius",
       future_apps: "Future Apps",
       future_app_1: "Upcoming App Project #1",
       game_projects: "Game Projects & Engines",
-      game_engines: "Game Engines",
-      opensource_projects: "Open Source Projects",
-      github_repos: "Alcomist GitHub Repositories"
+      game_engines: "Game Engines"
     },
     history: {
       title: "History & Experience",
@@ -127,6 +130,7 @@ const translations = {
       present: "Present",
       freelance: "Freelance",
       overseas: "🌎 Overseas Startup",
+      clients: "Clients",
       shiftone_desc: "Built and operated a portal and metadata management web application for Data Governance.",
       shiftone_b1: "Managed infrastructure in Azure Cloud and configured Azure Pipelines (K8s, Docker).",
       shiftone_b2: "Developed and maintained the Data Governance backend using Spring Boot and Python.",
