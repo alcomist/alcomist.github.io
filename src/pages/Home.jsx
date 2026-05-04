@@ -50,6 +50,7 @@ const Home = () => {
             <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
               <a href="https://opensearch.org/" target="_blank" rel="noopener noreferrer" className="tech-badge blue">OpenSearch</a>
               <a href="https://www.elastic.co/" target="_blank" rel="noopener noreferrer" className="tech-badge teal">Elasticsearch</a>
+              <a href="https://solr.apache.org/" target="_blank" rel="noopener noreferrer" className="tech-badge red">Solr</a>
               <a href="https://kafka.apache.org/" target="_blank" rel="noopener noreferrer" className="tech-badge purple">Kafka</a>
               <a href="http://gearman.org/" target="_blank" rel="noopener noreferrer" className="tech-badge orange">Gearman</a>
             </div>
@@ -94,6 +95,7 @@ const Home = () => {
             <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
               <a href="https://opensearch.org/" target="_blank" rel="noopener noreferrer" className="tech-badge blue">OpenSearch</a>
               <a href="https://www.elastic.co/" target="_blank" rel="noopener noreferrer" className="tech-badge teal">Elasticsearch</a>
+              <a href="https://solr.apache.org/" target="_blank" rel="noopener noreferrer" className="tech-badge red">Solr</a>
               <a href="https://redis.io/" target="_blank" rel="noopener noreferrer" className="tech-badge red">Redis</a>
               <a href="https://kafka.apache.org/" target="_blank" rel="noopener noreferrer" className="tech-badge purple">Kafka</a>
               <a href="http://gearman.org/" target="_blank" rel="noopener noreferrer" className="tech-badge orange">Gearman</a>
