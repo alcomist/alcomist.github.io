@@ -101,7 +101,10 @@ const translations = {
       wonder_b3: "출시 후 iOS 앱스토어 및 Android 구글 플레이스토어 전체 앱 순위 1위 달성",
       gfzone_desc: "캐주얼 온라인 게임 '마경기담' 서버 개발",
       gfzone_b1: "C++ 및 IOCP를 활용한 고성능 Windows 기반 게임 서버 네트워크 프레임워크 개발",
-      gfzone_b2: "Microsoft SQL Server를 이용한 데이터베이스 연동 및 쿼리 최적화"
+      gfzone_b2: "Microsoft SQL Server를 이용한 데이터베이스 연동 및 쿼리 최적화",
+      skmns_desc: "Tmap의 전신인 'Nate Drive' 및 '안전운전도우미' 피처폰 앱 개발",
+      skmns_b1: "WIPI C 기술 기반 모바일 애플리케이션 개발",
+      skmns_b2: "다양한 피처폰 기종 및 WIPI C 버전별 맞춤형 빌드 및 배포 파이프라인 운영"
     }
   },
   en: {
@@ -181,7 +184,10 @@ const translations = {
       wonder_b3: "Achieved #1 overall ranking on both iOS App Store and Android Google Play Store after launch.",
       gfzone_desc: "Developed the server for the casual online game 'Magyeong Gidam'",
       gfzone_b1: "Developed a high-performance Windows-based game server network framework using C++ and IOCP.",
-      gfzone_b2: "Integrated and optimized database queries using Microsoft SQL Server."
+      gfzone_b2: "Integrated and optimized database queries using Microsoft SQL Server.",
+      skmns_desc: "Developed feature phone apps 'Nate Drive' (predecessor to Tmap) and 'Safe Driving Assistant'",
+      skmns_b1: "Developed mobile applications based on WIPI C technology.",
+      skmns_b2: "Managed customized builds and deployment pipelines for various feature phone models and WIPI C versions."
     }
   }
 };

@@ -559,7 +559,56 @@ const History = () => {
       clients: [
         { name: 'SK Telecom', url: 'https://www.sktelecom.com/' }
       ],
-      description: 'Software Engineer'
+      description: (
+        <>
+          <div style={{ marginBottom: '8px' }}>
+            {t('skmns_desc', 'history')}
+          </div>
+          <ul style={{ paddingLeft: '20px', margin: '12px 0' }}>
+            <li>{t('skmns_b1', 'history')}</li>
+            <li>{t('skmns_b2', 'history')}</li>
+          </ul>
+          <div style={{ marginTop: '16px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            {Object.entries({
+              'Language & Platform': [
+                { name: 'C', url: 'https://en.wikipedia.org/wiki/C_(programming_language)' },
+                { name: 'WIPI', url: 'https://ko.wikipedia.org/wiki/%EC%9C%84%ED%94%BC' }
+              ],
+              'Build & Deploy': [
+                { name: 'Feature Phone', url: 'https://en.wikipedia.org/wiki/Feature_phone' }
+              ]
+            }).map(([category, items]) => (
+              <div key={category} style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
+                <span style={{ fontSize: '0.85rem', fontWeight: 'bold', color: 'var(--text-main)', width: '150px' }}>{category}</span>
+                <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                  {items.map(tech => (
+                    <a 
+                      key={tech.name} 
+                      href={tech.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      style={{ 
+                        fontSize: '0.8rem', 
+                        padding: '4px 10px', 
+                        background: 'rgba(59, 130, 246, 0.2)', 
+                        color: 'var(--primary-color)', 
+                        borderRadius: '12px', 
+                        fontWeight: '500',
+                        textDecoration: 'none',
+                        transition: 'background 0.2s ease'
+                      }}
+                      onMouseOver={(e) => e.target.style.background = 'rgba(59, 130, 246, 0.3)'}
+                      onMouseOut={(e) => e.target.style.background = 'rgba(59, 130, 246, 0.2)'}
+                    >
+                      {tech.name}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </>
+      )
     }
   ];
 
