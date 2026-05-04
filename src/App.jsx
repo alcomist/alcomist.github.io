@@ -11,6 +11,15 @@ import { useLanguage } from './LanguageContext';
 function App() {
   const location = useLocation();
   const { toggleLanguage, t } = useLanguage();
+  const [theme, setTheme] = React.useState('modern');
+
+  React.useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+  }, [theme]);
+
+  const handleThemeChange = (e) => {
+    setTheme(e.target.value);
+  };
 
   return (
     <div className="layout">
@@ -33,6 +42,26 @@ function App() {
             <Link2 size={18} style={{marginRight: 6, verticalAlign: 'text-bottom'}} />
             {t('links', 'nav')}
           </Link>
+            <select 
+              value={theme}
+              onChange={handleThemeChange}
+              style={{
+                background: 'rgba(255,255,255,0.1)',
+                border: 'none',
+                color: 'var(--text-main)',
+                padding: '6px 12px',
+                borderRadius: '16px',
+                cursor: 'pointer',
+                fontWeight: 'bold',
+                marginLeft: '12px',
+                outline: 'none',
+                appearance: 'none',
+                textAlign: 'center'
+              }}
+            >
+              <option value="modern" style={{ color: '#0f172a' }}>{t('theme_modern', 'nav')}</option>
+              <option value="retro" style={{ color: '#282828' }}>{t('theme_retro', 'nav')}</option>
+            </select>
             <button 
               onClick={toggleLanguage} 
               style={{ 
