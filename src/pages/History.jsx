@@ -229,6 +229,7 @@ const History = () => {
             <li>{t('bilton_b2', 'history')}</li>
             <li>{t('bilton_b3', 'history')}</li>
             <li>{t('bilton_b4', 'history')}</li>
+            <li>{t('bilton_b5', 'history')}</li>
           </ul>
           <div style={{ marginTop: '16px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
             {Object.entries({
