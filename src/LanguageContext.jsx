@@ -53,7 +53,7 @@ const translations = {
       request_modal_cancel: "취소",
       request_modal_success: "바로 연락드리겠습니다!",
       request_modal_company: "회사명",
-      request_modal_name: "이름",
+      request_modal_name: "성함",
       request_modal_phone: "핸드폰 번호",
       request_modal_email: "이메일",
       request_modal_type: "개발 타입",

@@ -20,6 +20,16 @@ const Home = () => {
     e.preventDefault();
     if (isSending) return;
     
+    if (!formData.company && !formData.name) {
+      alert(t('request_modal_company_name_required', 'home') || "회사명 또는 성함을 입력해주세요.");
+      return;
+    }
+    
+    if (!formData.phone && !formData.email) {
+      alert(t('request_modal_phone_email_required', 'home') || "핸드폰 번호 또는 이메일을 입력해주세요.");
+      return;
+    }
+
     setIsSending(true);
 
     // EmailJS 설정: 가입 후 발급받은 실제 ID들로 교체해야 합니다.
@@ -281,19 +291,19 @@ const Home = () => {
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '20px' }}>
                 <div>
                   <label style={{ display: 'block', marginBottom: '8px', color: 'var(--text-muted)' }}>{t('request_modal_company', 'home')}</label>
-                  <input type="text" required value={formData.company} onChange={(e) => setFormData({...formData, company: e.target.value})} style={inputStyle} />
+                  <input type="text" value={formData.company} onChange={(e) => setFormData({...formData, company: e.target.value})} style={inputStyle} />
                 </div>
                 <div>
                   <label style={{ display: 'block', marginBottom: '8px', color: 'var(--text-muted)' }}>{t('request_modal_name', 'home')}</label>
-                  <input type="text" required value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} style={inputStyle} />
+                  <input type="text" value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} style={inputStyle} />
                 </div>
                 <div>
                   <label style={{ display: 'block', marginBottom: '8px', color: 'var(--text-muted)' }}>{t('request_modal_phone', 'home')}</label>
-                  <input type="tel" required value={formData.phone} onChange={(e) => setFormData({...formData, phone: e.target.value.replace(/[^0-9]/g, '')})} style={inputStyle} placeholder="숫자만 입력" />
+                  <input type="tel" value={formData.phone} onChange={(e) => setFormData({...formData, phone: e.target.value.replace(/[^0-9]/g, '')})} style={inputStyle} placeholder="숫자만 입력" />
                 </div>
                 <div>
                   <label style={{ display: 'block', marginBottom: '8px', color: 'var(--text-muted)' }}>{t('request_modal_email', 'home')}</label>
-                  <input type="email" required pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} style={inputStyle} title="올바른 이메일 형식을 입력해주세요 (예: user@example.com)" />
+                  <input type="email" pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} style={inputStyle} title="올바른 이메일 형식을 입력해주세요 (예: user@example.com)" />
                 </div>
               </div>
               <div style={{ marginBottom: '20px' }}>
