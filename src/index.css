@@ -225,8 +225,38 @@ nav {
 }
 
 @media (max-width: 768px) {
-  nav { flex-direction: column; gap: 16px; }
-  .hero h1 { font-size: 2.5rem; }
+  nav { 
+    flex-direction: column; 
+    gap: 16px; 
+    padding: 16px 20px;
+  }
+  .nav-links { 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 12px; 
+  }
+  .hero {
+    padding: 40px 0;
+  }
+  .hero h1 { 
+    font-size: 2.2rem !important; 
+  }
+  .hero p {
+    font-size: 1rem !important;
+  }
+  .container {
+    padding: 20px 16px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .modal-content {
+    padding: 24px !important;
+    width: 90% !important;
+  }
+  .form-grid {
+    grid-template-columns: 1fr !important;
+  }
 }
 
 .tech-badge {

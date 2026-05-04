@@ -274,21 +274,23 @@ const Home = () => {
           zIndex: 1000,
           animation: 'fadeIn 0.2s ease'
         }}>
-          <div style={{
+          <div className="modal-content" style={{
             background: 'var(--bg-secondary)',
             padding: '40px',
             borderRadius: '24px',
             width: '100%',
             maxWidth: '500px',
             border: '1px solid rgba(255,255,255,0.1)',
-            boxShadow: '0 20px 40px rgba(0,0,0,0.4)'
+            boxShadow: '0 20px 40px rgba(0,0,0,0.4)',
+            maxHeight: '90vh',
+            overflowY: 'auto'
           }}>
             <h2 style={{ marginBottom: '24px', color: 'var(--text-main)', display: 'flex', alignItems: 'center', gap: '12px' }}>
               <Mail color="var(--primary-color)" />
               {t('request_modal_title', 'home')}
             </h2>
             <form onSubmit={handleSubmit}>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '20px' }}>
+              <div className="form-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '20px' }}>
                 <div>
                   <label style={{ display: 'block', marginBottom: '8px', color: 'var(--text-muted)' }}>{t('request_modal_company', 'home')}</label>
                   <input type="text" value={formData.company} onChange={(e) => setFormData({...formData, company: e.target.value})} style={inputStyle} />
