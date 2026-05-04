@@ -66,7 +66,7 @@ const Home = () => {
   return (
     <div className="fade-in" style={{ position: 'relative' }}>
       <section className="hero">
-        <h1 className="gradient-text" style={{ fontSize: '3rem', marginBottom: '16px' }}>{t('hello', 'home')}</h1>
+        <h1 className="gradient-text" style={{ fontSize: '3rem', marginBottom: '16px', whiteSpace: 'pre-line' }}>{t('hello', 'home')}</h1>
         <p style={{ maxWidth: '800px', lineHeight: '1.8', color: 'var(--text-muted)', fontSize: '1.1rem' }}>
           {t('desc', 'home')}
         </p>

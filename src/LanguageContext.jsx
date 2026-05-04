@@ -32,10 +32,14 @@ const translations = {
       links: '링크',
       lang_toggle: '🇰🇷 한국어',
       theme_modern: '모던 테마',
-      theme_retro: '레트로 테마'
+      theme_retro: '레트로 테마',
+      footer_company: '푸리에 소프트웨어 (Fourier Softwares)',
+      footer_rep: '대표: 정진현 | 사업자등록번호: 559-59-00761',
+      footer_email: '이메일: fourier.co.kr@gmail.com',
+      footer_rights: 'Fourier Softwares. All rights reserved.'
     },
     home: {
-      hello: "안녕하세요, 소프트웨어 개발 전문 기업 푸리에 소프트웨어입니다",
+      hello: "안녕하세요, 소프트웨어 개발 전문 기업\n푸리에 소프트웨어입니다",
       role: "Software Engineer & Maker",
       desc: "푸리에 소프트웨어(Fourier Softwares)는 에이전틱 AI 플랫폼과 대규모 데이터 파이프라인 구축에 특화된 B2B 에이전시입니다. 복잡한 파동이 단순한 주기 함수의 합으로 분해되듯, 아무리 복잡한 비즈니스 문제도 소프트웨어 엔지니어링의 본질적인 단위로 명쾌하게 분해하여 가장 견고하고 확장 가능한 솔루션으로 완성합니다.",
       what_i_can_do: "무엇을 할 수 있나요",
@@ -167,7 +171,11 @@ const translations = {
       links: 'Links',
       lang_toggle: '🇺🇸 ENG',
       theme_modern: 'Modern Theme',
-      theme_retro: 'Retro Theme'
+      theme_retro: 'Retro Theme',
+      footer_company: 'Fourier Softwares',
+      footer_rep: 'CEO: Jinhyun Jung | Business Reg. No.: 559-59-00761',
+      footer_email: 'Email: fourier.co.kr@gmail.com',
+      footer_rights: 'Fourier Softwares. All rights reserved.'
     },
     home: {
       hello: "Hello, we are Fourier Software",

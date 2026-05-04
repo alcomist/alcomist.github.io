@@ -90,6 +90,24 @@ function App() {
           <Route path="/app/android/:appId/privacy" element={<PrivacyPolicy />} />
         </Routes>
       </main>
+
+      <footer style={{ 
+        textAlign: 'center', 
+        padding: '40px 20px', 
+        marginTop: 'auto', 
+        borderTop: '1px solid var(--border-color)',
+        color: 'var(--text-muted)',
+        fontSize: '0.85rem',
+        lineHeight: '1.8',
+        width: '100%'
+      }}>
+        <div style={{ fontWeight: 'bold', color: 'var(--text-main)', marginBottom: '8px', fontSize: '0.95rem' }}>{t('footer_company', 'nav')}</div>
+        <div>{t('footer_rep', 'nav')}</div>
+        <div>{t('footer_email', 'nav')}</div>
+        <div style={{ marginTop: '16px', fontSize: '0.75rem', opacity: 0.7 }}>
+          Copyright © {new Date().getFullYear()} {t('footer_rights', 'nav')}
+        </div>
+      </footer>
     </div>
   );
 }
