@@ -11,7 +11,7 @@ const History = () => {
       endDate: 'Present',
       title: (
         <a href="https://shiftone.kr/" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }} className="hover-underline">
-          시프트원주식회사
+          {t('shiftone_title', 'history')}
         </a>
       ),
       clients: [
@@ -84,7 +84,7 @@ const History = () => {
       id: 1.25,
       startDate: '2024-09-30',
       endDate: '2025-05-31',
-      title: '유플러스 기업메시징',
+      title: t('uplus_title', 'history'),
       clients: [
         { name: 'LG U+', url: 'https://www.lguplus.com/' },
         { name: 'mediaLog', url: 'https://www.medialog.co.kr/' }
@@ -156,7 +156,7 @@ const History = () => {
       id: 1.5,
       startDate: '2024-03-25',
       endDate: '2024-09-24',
-      title: '(주)멸치',
+      title: t('melchi_title', 'history'),
       description: (
         <>
           <div style={{ marginBottom: '8px' }}>{t('melchi_desc', 'history')}</div>
@@ -218,7 +218,7 @@ const History = () => {
       id: 2,
       startDate: '2016-02-01',
       endDate: '2023-09-01',
-      title: '(주)빌트온',
+      title: t('bilton_title', 'history'),
       description: (
         <>
           <div style={{ marginBottom: '8px' }}>
@@ -280,7 +280,7 @@ const History = () => {
       id: 2.5,
       startDate: '2014-03-01',
       endDate: '2015-09-01',
-      title: 'Gamera Networks',
+      title: t('gamera_title', 'history'),
       description: (
         <>
           <div style={{ marginBottom: '8px' }}>
@@ -348,7 +348,7 @@ const History = () => {
       endDate: '2014-02-15',
       title: (
         <a href="https://www.wonderpeople.co.kr/#home" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }} className="hover-underline">
-          (주)원더피플
+          {t('wonder_title', 'history')}
         </a>
       ),
       description: (
@@ -422,9 +422,9 @@ const History = () => {
       title: (
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
           <a href="https://www.hanbitsoft.co.kr/" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }} className="hover-underline">
-            (주)한빛소프트
+            {t('hanbit_title', 'history')}
           </a>
-          <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>(구 (주)조이임팩트)</span>
+          <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>{t('hanbit_former', 'history')}</span>
         </div>
       ),
       description: (
@@ -489,7 +489,7 @@ const History = () => {
       id: 6,
       startDate: '2007-05-21',
       endDate: '2009-07-01',
-      title: '(주)지에프존',
+      title: t('gfzone_title', 'history'),
       description: (
         <>
           <div style={{ marginBottom: '8px' }}>
@@ -553,7 +553,7 @@ const History = () => {
       endDate: '2007-05-18',
       title: (
         <a href="https://www.skmnservice.com/pc_new/html/main.skmns" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }} className="hover-underline">
-          SK 엠앤서비스(주)
+          {t('skmns_title', 'history')}
         </a>
       ),
       clients: [
