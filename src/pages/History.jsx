@@ -219,7 +219,62 @@ const History = () => {
       startDate: '2016-02-01',
       endDate: '2023-09-01',
       title: '(주)빌트온',
-      description: 'Software Engineer'
+      description: (
+        <>
+          <div style={{ marginBottom: '8px' }}>
+            {t('bilton_desc', 'history')}
+          </div>
+          <ul style={{ paddingLeft: '20px', margin: '12px 0' }}>
+            <li>{t('bilton_b1', 'history')}</li>
+            <li>{t('bilton_b2', 'history')}</li>
+            <li>{t('bilton_b3', 'history')}</li>
+            <li>{t('bilton_b4', 'history')}</li>
+          </ul>
+          <div style={{ marginTop: '16px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            {Object.entries({
+              'Language & Tools': [
+                { name: 'TypeScript', url: 'https://www.typescriptlang.org/' },
+                { name: 'DHTMLX', url: 'https://dhtmlx.com/ko/' }
+              ],
+              'Data & Search': [
+                { name: 'Elasticsearch', url: 'https://www.elastic.co/' },
+                { name: 'MySQL', url: 'https://www.mysql.com/' }
+              ],
+              'Infrastructure': [
+                { name: 'CentOS (On-Premise)', url: 'https://www.centos.org/' }
+              ]
+            }).map(([category, items]) => (
+              <div key={category} style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
+                <span style={{ fontSize: '0.85rem', fontWeight: 'bold', color: 'var(--text-main)', width: '120px' }}>{category}</span>
+                <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                  {items.map(tech => (
+                    <a 
+                      key={tech.name} 
+                      href={tech.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      style={{ 
+                        fontSize: '0.8rem', 
+                        padding: '4px 10px', 
+                        background: 'rgba(59, 130, 246, 0.2)', 
+                        color: 'var(--primary-color)', 
+                        borderRadius: '12px', 
+                        fontWeight: '500',
+                        textDecoration: 'none',
+                        transition: 'background 0.2s ease'
+                      }}
+                      onMouseOver={(e) => e.target.style.background = 'rgba(59, 130, 246, 0.3)'}
+                      onMouseOut={(e) => e.target.style.background = 'rgba(59, 130, 246, 0.2)'}
+                    >
+                      {tech.name}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </>
+      )
     },
     {
       id: 2.5,
@@ -296,32 +351,201 @@ const History = () => {
           (주)원더피플
         </a>
       ),
-      description: 'Software Engineer'
+      description: (
+        <>
+          <div style={{ marginBottom: '8px' }}>
+            {t('wonder_desc', 'history')}
+            <a href="https://www.newspost.kr/news/articleView.html?idxno=18215" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent-color)', textDecoration: 'none', fontWeight: 'bold', marginLeft: '6px' }}>
+              (앱 관련 기사)
+            </a>
+          </div>
+          <ul style={{ paddingLeft: '20px', margin: '12px 0' }}>
+            <li>{t('wonder_b1', 'history')}</li>
+            <li>{t('wonder_b2', 'history')}</li>
+            <li>
+              <div style={{ marginBottom: '8px' }}>{t('wonder_b3', 'history')}</div>
+              <div style={{ display: 'flex', gap: '12px', marginTop: '12px', overflowX: 'auto', paddingBottom: '8px' }}>
+                <img src="/member_ios_rank.png" alt="iOS App Store 1위" style={{ height: '300px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.1)', boxShadow: '0 4px 12px rgba(0,0,0,0.15)' }} />
+                <img src="/member_aos_rank.png" alt="Google Play Store 1위" style={{ height: '300px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.1)', boxShadow: '0 4px 12px rgba(0,0,0,0.15)' }} />
+              </div>
+            </li>
+          </ul>
+          <div style={{ marginTop: '16px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            {Object.entries({
+              'Language & API': [
+                { name: 'C++', url: 'https://isocpp.org/' },
+                { name: 'epoll', url: 'https://man7.org/linux/man-pages/man7/epoll.7.html' }
+              ],
+              'Database': [
+                { name: 'MySQL', url: 'https://www.mysql.com/' }
+              ],
+              'Infrastructure': [
+                { name: 'Linux (On-Premise)', url: 'https://www.linux.org/' }
+              ]
+            }).map(([category, items]) => (
+              <div key={category} style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
+                <span style={{ fontSize: '0.85rem', fontWeight: 'bold', color: 'var(--text-main)', width: '130px' }}>{category}</span>
+                <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                  {items.map(tech => (
+                    <a 
+                      key={tech.name} 
+                      href={tech.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      style={{ 
+                        fontSize: '0.8rem', 
+                        padding: '4px 10px', 
+                        background: 'rgba(59, 130, 246, 0.2)', 
+                        color: 'var(--primary-color)', 
+                        borderRadius: '12px', 
+                        fontWeight: '500',
+                        textDecoration: 'none',
+                        transition: 'background 0.2s ease'
+                      }}
+                      onMouseOver={(e) => e.target.style.background = 'rgba(59, 130, 246, 0.3)'}
+                      onMouseOut={(e) => e.target.style.background = 'rgba(59, 130, 246, 0.2)'}
+                    >
+                      {tech.name}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </>
+      )
     },
     {
       id: 4,
-      startDate: '2010-05-01',
+      startDate: '2009-11-01',
       endDate: '2012-10-01',
       title: (
-        <a href="https://www.hanbitsoft.co.kr/" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }} className="hover-underline">
-          (주)한빛소프트
-        </a>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+          <a href="https://www.hanbitsoft.co.kr/" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }} className="hover-underline">
+            (주)한빛소프트
+          </a>
+          <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>(구 (주)조이임팩트)</span>
+        </div>
       ),
-      description: 'Software Engineer'
-    },
-    {
-      id: 5,
-      startDate: '2009-11-01',
-      endDate: '2010-05-01',
-      title: '(주)조이임팩트',
-      description: 'Software Engineer'
+      description: (
+        <>
+          <div style={{ marginBottom: '8px' }}>
+            {t('hanbit_desc', 'history')}
+            <a href="https://www.inven.co.kr/webzine/news/?news=45911" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent-color)', textDecoration: 'none', fontWeight: 'bold', marginLeft: '6px' }}>
+              (게임소개)
+            </a>
+          </div>
+          <ul style={{ paddingLeft: '20px', margin: '12px 0' }}>
+            <li>{t('hanbit_b1', 'history')}</li>
+            <li>{t('hanbit_b2', 'history')}</li>
+            <li>{t('hanbit_b3', 'history')}</li>
+          </ul>
+          <div style={{ marginTop: '16px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            {Object.entries({
+              'Language & API': [
+                { name: 'C++', url: 'https://isocpp.org/' },
+                { name: 'IOCP', url: 'https://learn.microsoft.com/en-us/windows/win32/fileio/i-o-completion-ports' }
+              ],
+              'Database': [
+                { name: 'Microsoft SQL Server', url: 'https://www.microsoft.com/sql-server' }
+              ],
+              'Infrastructure': [
+                { name: 'Windows Server', url: 'https://www.microsoft.com/windows-server' }
+              ]
+            }).map(([category, items]) => (
+              <div key={category} style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
+                <span style={{ fontSize: '0.85rem', fontWeight: 'bold', color: 'var(--text-main)', width: '130px' }}>{category}</span>
+                <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                  {items.map(tech => (
+                    <a 
+                      key={tech.name} 
+                      href={tech.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      style={{ 
+                        fontSize: '0.8rem', 
+                        padding: '4px 10px', 
+                        background: 'rgba(59, 130, 246, 0.2)', 
+                        color: 'var(--primary-color)', 
+                        borderRadius: '12px', 
+                        fontWeight: '500',
+                        textDecoration: 'none',
+                        transition: 'background 0.2s ease'
+                      }}
+                      onMouseOver={(e) => e.target.style.background = 'rgba(59, 130, 246, 0.3)'}
+                      onMouseOut={(e) => e.target.style.background = 'rgba(59, 130, 246, 0.2)'}
+                    >
+                      {tech.name}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </>
+      )
     },
     {
       id: 6,
       startDate: '2007-05-21',
       endDate: '2009-07-01',
       title: '(주)지에프존',
-      description: 'Software Engineer'
+      description: (
+        <>
+          <div style={{ marginBottom: '8px' }}>
+            {t('gfzone_desc', 'history')}
+            <a href="https://www.gamemeca.com/view.php?gid=122083" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent-color)', textDecoration: 'none', fontWeight: 'bold', marginLeft: '6px' }}>
+              (게임소개)
+            </a>
+          </div>
+          <ul style={{ paddingLeft: '20px', margin: '12px 0' }}>
+            <li>{t('gfzone_b1', 'history')}</li>
+            <li>{t('gfzone_b2', 'history')}</li>
+          </ul>
+          <div style={{ marginTop: '16px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            {Object.entries({
+              'Language & API': [
+                { name: 'C++', url: 'https://isocpp.org/' },
+                { name: 'IOCP', url: 'https://learn.microsoft.com/en-us/windows/win32/fileio/i-o-completion-ports' }
+              ],
+              'Database': [
+                { name: 'Microsoft SQL Server', url: 'https://www.microsoft.com/sql-server' }
+              ],
+              'Infrastructure': [
+                { name: 'Windows Server', url: 'https://www.microsoft.com/windows-server' }
+              ]
+            }).map(([category, items]) => (
+              <div key={category} style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
+                <span style={{ fontSize: '0.85rem', fontWeight: 'bold', color: 'var(--text-main)', width: '130px' }}>{category}</span>
+                <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                  {items.map(tech => (
+                    <a 
+                      key={tech.name} 
+                      href={tech.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      style={{ 
+                        fontSize: '0.8rem', 
+                        padding: '4px 10px', 
+                        background: 'rgba(59, 130, 246, 0.2)', 
+                        color: 'var(--primary-color)', 
+                        borderRadius: '12px', 
+                        fontWeight: '500',
+                        textDecoration: 'none',
+                        transition: 'background 0.2s ease'
+                      }}
+                      onMouseOver={(e) => e.target.style.background = 'rgba(59, 130, 246, 0.3)'}
+                      onMouseOut={(e) => e.target.style.background = 'rgba(59, 130, 246, 0.2)'}
+                    >
+                      {tech.name}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </>
+      )
     },
     {
       id: 7,

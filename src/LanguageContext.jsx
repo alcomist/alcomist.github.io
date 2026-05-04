@@ -58,7 +58,7 @@ const translations = {
     },
     history: {
       title: "이력 및 경험",
-      desc: "가장 최근부터 과거까지의 업무 여정입니다.",
+      desc: "다양한 도메인과 기술 환경에서 가치를 창출해 온 전문적인 실무 경력입니다.",
       total: "총",
       months: "개월",
       years: "년",
@@ -85,7 +85,23 @@ const translations = {
       gamera_desc_2: "앱 프로젝트의 Project Manager(PM) 및 백엔드 개발 수행",
       gamera_b1: "C++ 기반 영상 업로드 및 스트리밍 백엔드 서버 시스템 직접 설계 및 개발",
       gamera_b2: "Android 및 iOS 모바일 클라이언트 애플리케이션 개발 프로젝트 리드 및 매니징 (직접 개발 제외)",
-      gamera_b3: "AWS 클라우드 인프라 아키텍처 구성 및 Linux 환경 최적화"
+      gamera_b3: "AWS 클라우드 인프라 아키텍처 구성 및 Linux 환경 최적화",
+      bilton_desc: "수집엔진에서 수집된 크롤링 데이터를 가공 아키텍처 및 파이프라인 구축 및 개발",
+      bilton_b1: "데이터 정제를 위한 Elasticsearch 적재 및 Data Mart 생성 파이프라인 구축",
+      bilton_b2: "데이터 정제를 위한 소규모 스크립트 엔진 개발",
+      bilton_b3: "TypeScript 및 DHTMLX를 활용한 데이터 정제 툴 개발",
+      bilton_b4: "On-Premise 환경(CentOS) 서버 구축 및 MySQL 데이터베이스 운영",
+      hanbit_desc: "'스쿼드 플로우(Squad Flow)' 게임 서버 개발",
+      hanbit_b1: "C++ 및 IOCP(I/O Completion Port)를 활용한 고성능 게임 서버 네트워크 로직 개발",
+      hanbit_b2: "Windows Server 환경 구축 및 Microsoft SQL Server를 이용한 데이터베이스 설계",
+      hanbit_b3: "(주)조이임팩트 입사 후, (주)한빛소프트로 자회사 흡수 합병됨에 따라 동일 프로젝트 지속 수행",
+      wonder_desc: "동창 주소록 소셜 네트워킹 앱 '멤버(Member)' 서버 개발",
+      wonder_b1: "C++ 및 epoll을 활용한 고성능 Linux 기반 백엔드 네트워크 로직 개발",
+      wonder_b2: "On-Premise 환경(Linux) 구축 및 MySQL을 이용한 데이터베이스 설계/운영",
+      wonder_b3: "출시 후 iOS 앱스토어 및 Android 구글 플레이스토어 전체 앱 순위 1위 달성",
+      gfzone_desc: "캐주얼 온라인 게임 '마경기담' 서버 개발",
+      gfzone_b1: "C++ 및 IOCP를 활용한 고성능 Windows 기반 게임 서버 네트워크 프레임워크 개발",
+      gfzone_b2: "Microsoft SQL Server를 이용한 데이터베이스 연동 및 쿼리 최적화"
     }
   },
   en: {
@@ -122,7 +138,7 @@ const translations = {
     },
     history: {
       title: "History & Experience",
-      desc: "My professional journey, from latest to earliest.",
+      desc: "A professional track record of delivering value across diverse domains and technology environments.",
       total: "Total",
       months: "mos",
       years: "yrs",
@@ -149,7 +165,23 @@ const translations = {
       gamera_desc_2: "an app where users record gameplay (using FFmpeg) and share it with others.",
       gamera_b1: "Directly designed and developed the C++ based video upload and streaming backend server system.",
       gamera_b2: "Managed and led the Android and iOS mobile client application development project (excluding direct development).",
-      gamera_b3: "Configured AWS cloud infrastructure architecture and optimized the Linux environment."
+      gamera_b3: "Configured AWS cloud infrastructure architecture and optimized the Linux environment.",
+      bilton_desc: "Developed a system to process crawling data collected from the collection engine.",
+      bilton_b1: "Loaded data into Elasticsearch for data refinement and created a Data Mart.",
+      bilton_b2: "Developed a small-scale script engine for data refinement.",
+      bilton_b3: "Developed a data refinement tool using TypeScript and DHTMLX.",
+      bilton_b4: "Configured an On-Premise server environment (CentOS) and operated a MySQL database.",
+      hanbit_desc: "Developed the game server for 'Squad Flow'",
+      hanbit_b1: "Developed high-performance game server network logic using C++ and IOCP (I/O Completion Port).",
+      hanbit_b2: "Configured a Windows Server environment and designed the database using Microsoft SQL Server.",
+      hanbit_b3: "Joined JoyImpact, which was later absorbed by HanbitSoft, continuing the same project through the transition.",
+      wonder_desc: "Developed the server for the alumni directory social networking app 'Member'",
+      wonder_b1: "Developed high-performance Linux-based backend network logic using C++ and epoll.",
+      wonder_b2: "Configured an On-Premise environment (Linux) and designed/operated the database using MySQL.",
+      wonder_b3: "Achieved #1 overall ranking on both iOS App Store and Android Google Play Store after launch.",
+      gfzone_desc: "Developed the server for the casual online game 'Magyeong Gidam'",
+      gfzone_b1: "Developed a high-performance Windows-based game server network framework using C++ and IOCP.",
+      gfzone_b2: "Integrated and optimized database queries using Microsoft SQL Server."
     }
   }
 };
