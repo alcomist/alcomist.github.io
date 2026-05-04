@@ -199,3 +199,40 @@ nav {
   nav { flex-direction: column; gap: 16px; }
   .hero h1 { font-size: 2.5rem; }
 }
+
+.tech-badge {
+  font-size: 0.9rem;
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-main);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tech-badge:hover {
+  transform: translateY(-2px);
+}
+
+.tech-badge.blue { color: #93c5fd; background: rgba(59, 130, 246, 0.1); border-color: rgba(59, 130, 246, 0.2); }
+.tech-badge.blue:hover { border-color: #3b82f6; color: #3b82f6; background: rgba(59, 130, 246, 0.15); box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2); }
+
+.tech-badge.green { color: #6ee7b7; background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.2); }
+.tech-badge.green:hover { border-color: #10b981; color: #10b981; background: rgba(16, 185, 129, 0.15); box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2); }
+
+.tech-badge.red { color: #fca5a5; background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.2); }
+.tech-badge.red:hover { border-color: #ef4444; color: #ef4444; background: rgba(239, 68, 68, 0.15); box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2); }
+
+.tech-badge.orange { color: #fcd34d; background: rgba(245, 158, 11, 0.1); border-color: rgba(245, 158, 11, 0.2); }
+.tech-badge.orange:hover { border-color: #f59e0b; color: #f59e0b; background: rgba(245, 158, 11, 0.15); box-shadow: 0 4px 12px rgba(245, 158, 11, 0.2); }
+
+.tech-badge.purple { color: #c4b5fd; background: rgba(139, 92, 246, 0.1); border-color: rgba(139, 92, 246, 0.2); }
+.tech-badge.purple:hover { border-color: #8b5cf6; color: #8b5cf6; background: rgba(139, 92, 246, 0.15); box-shadow: 0 4px 12px rgba(139, 92, 246, 0.2); }
+
+.tech-badge.teal { color: #67e8f9; background: rgba(6, 182, 212, 0.1); border-color: rgba(6, 182, 212, 0.2); }
+.tech-badge.teal:hover { border-color: #06b6d4; color: #06b6d4; background: rgba(6, 182, 212, 0.15); box-shadow: 0 4px 12px rgba(6, 182, 212, 0.2); }

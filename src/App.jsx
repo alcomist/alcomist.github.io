@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="layout">
       <nav>
-        <Link to="/" className="brand gradient-text">Alcomist</Link>
+        <Link to="/" className="brand gradient-text">Fourier</Link>
         <div className="nav-links">
           <Link to="/" className={location.pathname === '/' ? 'active' : ''}>
             <User size={18} style={{marginRight: 6, verticalAlign: 'text-bottom'}} />
