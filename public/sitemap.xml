@@ -6,14 +6,14 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://fourier.co.kr/about</loc>
+    <loc>https://fourier.co.kr/history</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fourier.co.kr/history</loc>
+    <loc>https://fourier.co.kr/apps</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://fourier.co.kr/links</loc>

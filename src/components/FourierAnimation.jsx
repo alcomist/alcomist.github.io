@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useMemo } from 'react';
 import fourierPoints from '../fourierPoints.json';
 
 function dft(x) {
@@ -30,17 +30,16 @@ function dft(x) {
 
 const FourierAnimation = () => {
   const canvasRef = useRef(null);
-  const [fourierData, setFourierData] = useState(null);
   const pathRef = useRef([]);
 
-  useEffect(() => {
+  const fourierData = useMemo(() => {
     // Use all points for maximum accuracy (removes jaggedness/Gibbs phenomenon)
     // 1976 points takes < 10ms to DFT in modern JS.
     const fourier = dft(fourierPoints);
     
     // Sort epicycles by amplitude so the largest circles are drawn first
     fourier.sort((a, b) => b.amp - a.amp);
-    setFourierData(fourier);
+    return fourier;
   }, []);
 
   useEffect(() => {
@@ -60,8 +59,6 @@ const FourierAnimation = () => {
     const render = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
-      let finalX = 0, finalY = 0;
-      
       // Calculate multiple path points per frame to maintain smooth speed without losing resolution
       for (let step = 0; step < pointsPerFrame; step++) {
         let x = canvas.width / 2;
@@ -78,8 +75,6 @@ const FourierAnimation = () => {
         
         pathRef.current.unshift({x, y});
         time += dt;
-        finalX = x;
-        finalY = y;
         
         // We limit path length so it draws exactly one cycle
         if (pathRef.current.length > N) {

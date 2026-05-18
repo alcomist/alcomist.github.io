@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import { Smartphone, Gamepad2, LayoutTemplate, Globe, Mail, Send, Database, Bot } from 'lucide-react';
+import { useState } from 'react';
+import { Smartphone, Gamepad2, LayoutTemplate, Mail, Send, Database, Bot, ArrowRight, CheckCircle2, Clock3, ShieldCheck } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
-import FourierAnimation from '../components/FourierAnimation';
 import emailjs from '@emailjs/browser';
 
 const Home = () => {
@@ -15,6 +14,18 @@ const Home = () => {
     background: 'rgba(0,0,0,0.2)', border: '1px solid rgba(255,255,255,0.1)',
     color: 'var(--text-main)', fontSize: '1rem', boxSizing: 'border-box'
   };
+
+  const proofItems = [
+    { icon: <ShieldCheck size={22} />, value: t('proof_1_value', 'home'), label: t('proof_1_label', 'home') },
+    { icon: <Database size={22} />, value: t('proof_2_value', 'home'), label: t('proof_2_label', 'home') },
+    { icon: <Clock3 size={22} />, value: t('proof_3_value', 'home'), label: t('proof_3_label', 'home') },
+  ];
+
+  const processSteps = [
+    { title: t('process_1_title', 'home'), desc: t('process_1_desc', 'home') },
+    { title: t('process_2_title', 'home'), desc: t('process_2_desc', 'home') },
+    { title: t('process_3_title', 'home'), desc: t('process_3_desc', 'home') },
+  ];
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -67,13 +78,43 @@ const Home = () => {
     <div className="fade-in" style={{ position: 'relative' }}>
       <section className="hero">
         <h1 className="gradient-text" style={{ fontSize: '3rem', marginBottom: '16px', whiteSpace: 'pre-line' }}>{t('hello', 'home')}</h1>
-        <p style={{ maxWidth: '800px', lineHeight: '1.8', color: 'var(--text-muted)', fontSize: '1.1rem' }}>
+        <p className="hero-lead">
           {t('desc', 'home')}
         </p>
-        <FourierAnimation />
+        <div className="hero-actions">
+          <button className="primary-cta" onClick={() => setIsModalOpen(true)}>
+            <Send size={19} />
+            {t('hero_primary_cta', 'home')}
+          </button>
+          <a href="#services" className="secondary-cta">
+            {t('hero_secondary_cta', 'home')}
+            <ArrowRight size={18} />
+          </a>
+        </div>
+        <div className="hero-proof-list">
+          <span><CheckCircle2 size={16} /> {t('hero_proof_1', 'home')}</span>
+          <span><CheckCircle2 size={16} /> {t('hero_proof_2', 'home')}</span>
+          <span><CheckCircle2 size={16} /> {t('hero_proof_3', 'home')}</span>
+        </div>
       </section>
 
-      <section style={{ marginTop: '60px' }}>
+      <section className="proof-strip" aria-label={t('proof_section_label', 'home')}>
+        {proofItems.map((item) => (
+          <div className="proof-card" key={item.value}>
+            <div className="proof-icon">{item.icon}</div>
+            <div>
+              <strong>{item.value}</strong>
+              <span>{item.label}</span>
+            </div>
+          </div>
+        ))}
+      </section>
+
+      <section id="services" style={{ marginTop: '60px' }}>
+        <div className="section-heading">
+          <h2>{t('services_title', 'home')}</h2>
+          <p>{t('services_desc', 'home')}</p>
+        </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
           <div className="card glass-panel" style={{ transition: 'transform 0.2s ease, box-shadow 0.2s ease' }}>
             <Bot size={32} color="var(--primary-color)" style={{ marginBottom: '16px' }} />
@@ -172,6 +213,22 @@ const Home = () => {
         </div>
       </section>
 
+      <section className="process-section">
+        <div className="section-heading">
+          <h2>{t('process_title', 'home')}</h2>
+          <p>{t('process_desc', 'home')}</p>
+        </div>
+        <div className="process-grid">
+          {processSteps.map((step, index) => (
+            <div className="process-card" key={step.title}>
+              <span className="process-index">{String(index + 1).padStart(2, '0')}</span>
+              <h3>{step.title}</h3>
+              <p>{step.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Tech Stack Section (Moved) */}
       <section style={{ marginTop: '60px' }}>
         <h2 style={{ marginBottom: '24px', color: 'var(--text-main)', fontSize: '2rem' }}>{t('tech_stack', 'home') || 'Tech Stack'}</h2>
@@ -232,7 +289,7 @@ const Home = () => {
       </section>
 
       {/* Contact Section */}
-      <section style={{ marginTop: '80px', padding: '40px', background: 'var(--surface-color)', borderRadius: '24px', border: '1px solid var(--border-color)', textAlign: 'center' }}>
+      <section className="contact-section">
         <Mail size={40} color="var(--primary-color)" style={{ marginBottom: '20px', margin: '0 auto' }} />
         <h2 style={{ fontSize: '2rem', marginBottom: '16px', color: 'var(--text-main)' }}>{t('contact_title', 'home')}</h2>
         <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', marginBottom: '32px', maxWidth: '600px', margin: '0 auto 32px' }}>
@@ -240,28 +297,14 @@ const Home = () => {
         </p>
         <button 
           onClick={() => setIsModalOpen(true)}
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '12px',
-            background: 'var(--primary-color)',
-            color: 'var(--bg-color)',
-            fontWeight: 'bold',
-            border: 'none',
-            padding: '16px 32px',
-            borderRadius: '30px',
-            fontSize: '1.1rem',
-            fontWeight: 'bold',
-            cursor: 'pointer',
-            boxShadow: '0 4px 15px rgba(59, 130, 246, 0.3)',
-            transition: 'transform 0.2s ease, box-shadow 0.2s ease'
-          }}
+          className="primary-cta contact-cta"
           onMouseOver={(e) => e.currentTarget.style.transform = 'translateY(-2px)'}
           onMouseOut={(e) => e.currentTarget.style.transform = 'translateY(0)'}
         >
           <Send size={20} />
-          {t('contact_title', 'home')}
+          {t('contact_cta', 'home')}
         </button>
+        <div className="contact-note">{t('contact_note', 'home')}</div>
       </section>
 
       {/* Modal */}

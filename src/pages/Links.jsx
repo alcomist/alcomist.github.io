@@ -1,14 +1,100 @@
-import React, { useState } from 'react';
-import { Gamepad2, ExternalLink, Cpu } from 'lucide-react';
+import { useState } from 'react';
+import { Bot, Boxes, Code2, Database, ExternalLink, Search, Server, Workflow } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 
 const Links = () => {
-  const { t, language } = useLanguage();
-  const [activeTab, setActiveTab] = useState('games');
+  const { t } = useLanguage();
+  const [activeTab, setActiveTab] = useState('ai');
 
   const tabs = [
-    { id: 'games', label: language === 'ko' ? '게임' : 'Games', icon: <Gamepad2 size={18} /> },
-    { id: 'engines', label: language === 'ko' ? '게임 엔진' : 'Game Engines', icon: <Cpu size={18} /> }
+    { id: 'ai', label: t('ai_tab', 'links'), icon: <Bot size={18} /> },
+    { id: 'opensource', label: t('opensource_tab', 'links'), icon: <Boxes size={18} /> }
+  ];
+
+  const aiLinks = [
+    {
+      title: 'LangChain',
+      desc: t('langchain_desc', 'links'),
+      url: 'https://www.langchain.com/',
+      icon: <Workflow size={24} color="var(--primary-color)" />
+    },
+    {
+      title: 'LangGraph',
+      desc: t('langgraph_desc', 'links'),
+      url: 'https://www.langchain.com/langgraph',
+      icon: <Workflow size={24} color="var(--primary-color)" />
+    },
+    {
+      title: 'LlamaIndex',
+      desc: t('llamaindex_desc', 'links'),
+      url: 'https://www.llamaindex.ai/',
+      icon: <Database size={24} color="var(--primary-color)" />
+    },
+    {
+      title: 'Model Context Protocol (MCP)',
+      desc: t('mcp_desc', 'links'),
+      url: 'https://modelcontextprotocol.io/',
+      icon: <Server size={24} color="var(--primary-color)" />
+    },
+    {
+      title: 'CrewAI',
+      desc: t('crewai_desc', 'links'),
+      url: 'https://www.crewai.com/',
+      icon: <Bot size={24} color="var(--primary-color)" />
+    },
+    {
+      title: 'Dify',
+      desc: t('dify_desc', 'links'),
+      url: 'https://dify.ai/',
+      icon: <Bot size={24} color="var(--primary-color)" />
+    },
+    {
+      title: 'n8n',
+      desc: t('n8n_desc', 'links'),
+      url: 'https://n8n.io/',
+      icon: <Workflow size={24} color="var(--primary-color)" />
+    },
+    {
+      title: 'Flowise',
+      desc: t('flowise_desc', 'links'),
+      url: 'https://flowiseai.com/',
+      icon: <Workflow size={24} color="var(--primary-color)" />
+    }
+  ];
+
+  const openSourceGroups = [
+    {
+      title: t('search_data_category', 'links'),
+      icon: <Search color="var(--accent-color)" />,
+      items: [
+        { title: 'OpenSearch', desc: t('opensearch_desc', 'links'), url: 'https://opensearch.org/' },
+        { title: 'Elasticsearch', desc: t('elasticsearch_desc', 'links'), url: 'https://www.elastic.co/elasticsearch' },
+        { title: 'Apache Solr', desc: t('solr_desc', 'links'), url: 'https://solr.apache.org/' },
+        { title: 'Monstache', desc: t('monstache_desc', 'links'), url: 'https://rwynn.github.io/monstache-site/' }
+      ]
+    },
+    {
+      title: t('backend_infra_category', 'links'),
+      icon: <Server color="var(--accent-color)" />,
+      items: [
+        { title: 'Apache Kafka', desc: t('kafka_desc', 'links'), url: 'https://kafka.apache.org/' },
+        { title: 'Redis', desc: t('redis_desc', 'links'), url: 'https://redis.io/' },
+        { title: 'MongoDB', desc: t('mongodb_desc', 'links'), url: 'https://www.mongodb.com/' },
+        { title: 'Kubernetes', desc: t('kubernetes_desc', 'links'), url: 'https://kubernetes.io/' },
+        { title: 'Docker', desc: t('docker_desc', 'links'), url: 'https://www.docker.com/' }
+      ]
+    },
+    {
+      title: t('app_framework_category', 'links'),
+      icon: <Code2 color="var(--accent-color)" />,
+      items: [
+        { title: 'React', desc: t('react_desc', 'links'), url: 'https://react.dev/' },
+        { title: 'Spring Boot', desc: t('spring_boot_desc', 'links'), url: 'https://spring.io/projects/spring-boot' },
+        { title: 'Spring WebFlux', desc: t('webflux_desc', 'links'), url: 'https://docs.spring.io/spring-framework/reference/web/webflux.html' },
+        { title: 'FastAPI', desc: t('fastapi_desc', 'links'), url: 'https://fastapi.tiangolo.com/' },
+        { title: 'Flutter', desc: t('flutter_link_desc', 'links'), url: 'https://flutter.dev/' }
+      ]
+    }
   ];
 
   return (
@@ -44,83 +130,54 @@ const Links = () => {
 
       {/* Content Area */}
       <div className="tab-content" style={{ animation: 'fadeIn 0.3s ease' }}>
-        {activeTab === 'games' && (
+        {activeTab === 'ai' && (
           <div className="links-grid" style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-            <div className="card" style={{ padding: '0', maxWidth: '600px' }}>
-              <div style={{ padding: '24px', borderBottom: '1px solid rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', gap: '12px' }}>
-                <Gamepad2 color="var(--accent-color)" />
-                <h3 style={{ margin: 0 }}>{t('games_category', 'links') || '오픈소스 게임'}</h3>
-              </div>
-              <div className="link-list glass-panel" style={{ padding: '24px' }}>
-                <a href="https://github.com/zeldaret/oot" target="_blank" rel="noopener noreferrer" className="link-item hover-translate" style={{ display: 'flex', alignItems: 'center', gap: '16px', padding: '16px', background: 'rgba(255,255,255,0.05)', borderRadius: '12px', textDecoration: 'none', marginBottom: '12px', transition: 'all 0.2s ease', border: '1px solid rgba(255,255,255,0.05)' }}>
-                  <div style={{ padding: '10px', background: 'rgba(59,130,246,0.1)', borderRadius: '10px' }}>
-                    <ExternalLink size={24} color="var(--primary-color)" />
-                  </div>
+            <div className="section-heading" style={{ marginBottom: 0 }}>
+              <h2>{t('ai_category', 'links')}</h2>
+              <p>{t('ai_category_desc', 'links')}</p>
+            </div>
+            <div className="link-card-grid">
+              {aiLinks.map((item) => (
+                <a key={item.title} href={item.url} target="_blank" rel="noopener noreferrer" className="resource-card">
+                  <div className="resource-icon">{item.icon}</div>
                   <div>
-                    <div style={{ color: 'var(--text-main)', fontWeight: 'bold', fontSize: '1.1rem' }}>{t('zelda', 'links')}</div>
-                    <div style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginTop: '4px' }}>{t('zelda_desc', 'links')}</div>
+                    <div className="resource-title">
+                      {item.title}
+                      <ExternalLink size={16} />
+                    </div>
+                    <div className="resource-desc">{item.desc}</div>
                   </div>
                 </a>
-                <a href="https://github.com/HarbourMasters/Shipwright" target="_blank" rel="noopener noreferrer" className="link-item hover-translate" style={{ display: 'flex', alignItems: 'center', gap: '16px', padding: '16px', background: 'rgba(255,255,255,0.05)', borderRadius: '12px', textDecoration: 'none', marginBottom: '12px', transition: 'all 0.2s ease', border: '1px solid rgba(255,255,255,0.05)' }}>
-                  <div style={{ padding: '10px', background: 'rgba(59,130,246,0.1)', borderRadius: '10px' }}>
-                    <ExternalLink size={24} color="var(--primary-color)" />
-                  </div>
-                  <div>
-                    <div style={{ color: 'var(--text-main)', fontWeight: 'bold', fontSize: '1.1rem' }}>{t('soh', 'links')}</div>
-                    <div style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginTop: '4px' }}>{t('soh_desc', 'links')}</div>
-                  </div>
-                </a>
-                <a href="https://github.com/jmechner/Prince-of-Persia-Apple-II" target="_blank" rel="noopener noreferrer" className="link-item hover-translate" style={{ display: 'flex', alignItems: 'center', gap: '16px', padding: '16px', background: 'rgba(255,255,255,0.05)', borderRadius: '12px', textDecoration: 'none', marginBottom: '12px', transition: 'all 0.2s ease', border: '1px solid rgba(255,255,255,0.05)' }}>
-                  <div style={{ padding: '10px', background: 'rgba(59,130,246,0.1)', borderRadius: '10px' }}>
-                    <ExternalLink size={24} color="var(--primary-color)" />
-                  </div>
-                  <div>
-                    <div style={{ color: 'var(--text-main)', fontWeight: 'bold', fontSize: '1.1rem' }}>{t('pop', 'links')}</div>
-                    <div style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginTop: '4px' }}>{t('pop_desc', 'links')}</div>
-                  </div>
-                </a>
-                <a href="https://github.com/Antrad/Abuse_1996" target="_blank" rel="noopener noreferrer" className="link-item hover-translate" style={{ display: 'flex', alignItems: 'center', gap: '16px', padding: '16px', background: 'rgba(255,255,255,0.05)', borderRadius: '12px', textDecoration: 'none', transition: 'all 0.2s ease', border: '1px solid rgba(255,255,255,0.05)' }}>
-                  <div style={{ padding: '10px', background: 'rgba(59,130,246,0.1)', borderRadius: '10px' }}>
-                    <ExternalLink size={24} color="var(--primary-color)" />
-                  </div>
-                  <div>
-                    <div style={{ color: 'var(--text-main)', fontWeight: 'bold', fontSize: '1.1rem' }}>{t('abuse', 'links')}</div>
-                    <div style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginTop: '4px' }}>{t('abuse_desc', 'links')}</div>
-                  </div>
-                </a>
-              </div>
+              ))}
             </div>
           </div>
         )}
 
-        {activeTab === 'engines' && (
+        {activeTab === 'opensource' && (
           <div className="links-grid" style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-            <div className="card" style={{ padding: '0', maxWidth: '600px' }}>
-              <div style={{ padding: '24px', borderBottom: '1px solid rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', gap: '12px' }}>
-                <Cpu color="var(--accent-color)" />
-                <h3 style={{ margin: 0 }}>{t('engines_category', 'links') || '게임 엔진'}</h3>
-              </div>
-              <div className="link-list glass-panel" style={{ padding: '24px' }}>
-                <a href="https://heaps.io/" target="_blank" rel="noopener noreferrer" className="link-item hover-translate" style={{ display: 'flex', alignItems: 'center', gap: '16px', padding: '16px', background: 'rgba(255,255,255,0.05)', borderRadius: '12px', textDecoration: 'none', marginBottom: '12px', transition: 'all 0.2s ease', border: '1px solid rgba(255,255,255,0.05)' }}>
-                  <div style={{ padding: '10px', background: 'rgba(59,130,246,0.1)', borderRadius: '10px' }}>
-                    <ExternalLink size={24} color="var(--primary-color)" />
-                  </div>
-                  <div>
-                    <div style={{ color: 'var(--text-main)', fontWeight: 'bold', fontSize: '1.1rem' }}>Heaps.io Game Engine</div>
-                    <div style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginTop: '4px' }}>Haxe based framework for high performance games</div>
-                  </div>
-                </a>
-                <a href="https://defold.com/" target="_blank" rel="noopener noreferrer" className="link-item hover-translate" style={{ display: 'flex', alignItems: 'center', gap: '16px', padding: '16px', background: 'rgba(255,255,255,0.05)', borderRadius: '12px', textDecoration: 'none', transition: 'all 0.2s ease', border: '1px solid rgba(255,255,255,0.05)' }}>
-                  <div style={{ padding: '10px', background: 'rgba(59,130,246,0.1)', borderRadius: '10px' }}>
-                    <ExternalLink size={24} color="var(--primary-color)" />
-                  </div>
-                  <div>
-                    <div style={{ color: 'var(--text-main)', fontWeight: 'bold', fontSize: '1.1rem' }}>Defold Game Engine</div>
-                    <div style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginTop: '4px' }}>Free and open game engine</div>
-                  </div>
-                </a>
-              </div>
+            <div className="section-heading" style={{ marginBottom: 0 }}>
+              <h2>{t('opensource_category', 'links')}</h2>
+              <p>{t('opensource_category_desc', 'links')}</p>
             </div>
+            {openSourceGroups.map((group) => (
+              <div className="resource-group" key={group.title}>
+                <div className="resource-group-heading">
+                  {group.icon}
+                  <h3>{group.title}</h3>
+                </div>
+                <div className="link-card-grid compact">
+                  {group.items.map((item) => (
+                    <a key={item.title} href={item.url} target="_blank" rel="noopener noreferrer" className="resource-card">
+                      <div className="resource-icon"><ExternalLink size={22} color="var(--primary-color)" /></div>
+                      <div>
+                        <div className="resource-title">{item.title}</div>
+                        <div className="resource-desc">{item.desc}</div>
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         )}
       </div>

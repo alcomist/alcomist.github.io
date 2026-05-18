@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import { Fragment } from 'react';
 import { useLanguage } from '../LanguageContext';
 
 const History = () => {
@@ -701,7 +701,7 @@ const History = () => {
     return result.trim() || t('under_1_month', 'history');
   };
 
-  const totalCareer = useMemo(() => getTotalDuration(), [t]);
+  const totalCareer = getTotalDuration();
 
   return (
     <div className="fade-in">
@@ -757,12 +757,12 @@ const History = () => {
                 <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.9rem', color: 'var(--text-muted)', flexWrap: 'wrap' }}>
                   <span style={{ fontWeight: '500' }}>{t('clients', 'history')}:</span>
                   {item.clients.map((client, idx) => (
-                    <React.Fragment key={client.name}>
+                  <Fragment key={client.name}>
                       <a href={client.url} target="_blank" rel="noopener noreferrer" className="hover-underline" style={{ color: 'var(--primary-color)', textDecoration: 'none', fontWeight: '500' }}>
                         {client.name}
                       </a>
                       {idx < item.clients.length - 1 && <span style={{ color: 'var(--text-muted)', fontSize: '0.8rem' }}>|</span>}
-                    </React.Fragment>
+                  </Fragment>
                   ))}
                 </div>
               )}
